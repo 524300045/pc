@@ -39,6 +39,10 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
@@ -70,6 +74,7 @@
     <Compile Include="PackageTaskForm.Designer.cs">
       <DependentUpon>PackageTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInfo.cs" />
     <Compile Include="WeightForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +130,9 @@
     <EmbeddedResource Include="WeightForm.resx">
       <DependentUpon>WeightForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,11 +144,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <Content Include="log\1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="WeifenLuo.WinFormsUI.Docking.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{645f8b35-8154-418d-b94b-6dcc833dfce7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wms.Controls\Wms.Controls.csproj">
+      <Project>{9e1db730-7bae-49f0-959d-9979ac576cce}</Project>
+      <Name>Wms.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WmsSDK\WmsSDK.csproj">
+      <Project>{0b656afd-2cff-4724-b3c9-249f6f0c9bdd}</Project>
+      <Name>WmsSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

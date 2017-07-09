@@ -128,11 +128,12 @@
             // 
             // tbWeight
             // 
-            this.tbWeight.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbWeight.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbWeight.Location = new System.Drawing.Point(127, 214);
             this.tbWeight.Name = "tbWeight";
-            this.tbWeight.Size = new System.Drawing.Size(156, 30);
+            this.tbWeight.Size = new System.Drawing.Size(156, 38);
             this.tbWeight.TabIndex = 0;
+            this.tbWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWeight_KeyDown);
             // 
             // label8
             // 
@@ -220,11 +221,13 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "WeightForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "称重打包";
             this.Load += new System.EventHandler(this.WeightForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeightForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -25,5 +25,29 @@ namespace WmsApp
         {
             tbWeight.Focus();
         }
+
+        /// <summary>
+        /// 显示商品明细
+        /// </summary>
+        private void ShowDetail()
+        { 
+        
+        }
+
+        private void tbWeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                
+            }
+        }
+
+        private void WeightForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

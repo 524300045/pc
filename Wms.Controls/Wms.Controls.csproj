@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B656AFD-2CFF-4724-B3C9-249F6F0C9BDD}</ProjectGuid>
+    <ProjectGuid>{9E1DB730-7BAE-49F0-959D-9979AC576CCE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WmsSDK</RootNamespace>
-    <AssemblyName>WmsSDK</AssemblyName>
+    <RootNamespace>Wms.Controls</RootNamespace>
+    <AssemblyName>Wms.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,47 +16,28 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\</OutputPath>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>..\..\Bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\Dll\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,23 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputerHelper.cs" />
-    <Compile Include="DefalutWMSClient.cs" />
-    <Compile Include="EventArgsBag.cs" />
-    <Compile Include="HttpExtension.cs" />
-    <Compile Include="IWMSClient.cs" />
-    <Compile Include="IWMSRequest.cs" />
-    <Compile Include="NetworkMonitor.cs" />
+    <Compile Include="Pager\EnumerableExtension.cs" />
+    <Compile Include="Pager\IPagedList.cs" />
+    <Compile Include="Pager\IPageSplit.cs" />
+    <Compile Include="Pager\PagedList.cs" />
+    <Compile Include="Pager\PageSplit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pager\PageSplit.Designer.cs">
+      <DependentUpon>PageSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pager\SortableBindingList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WMSResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Sdbs.Erp.Model\Sdbs.Erp.Model.csproj">
+      <Project>{3910dd67-a4a7-4b35-a90a-124a777fe347}</Project>
+      <Name>Sdbs.Erp.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sdbs.Erp.Services.Impl\Sdbs.Erp.Services.Impl.csproj">
+      <Project>{9bdbda54-ec9c-4676-829c-0dfc2793e018}</Project>
+      <Name>Sdbs.Erp.Services.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sdbs.Erp.Services\Sdbs.Erp.Services.csproj">
+      <Project>{e6c8bef1-93f1-483d-b45e-eed9602d6d2d}</Project>
+      <Name>Sdbs.Erp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Request\" />
-    <Folder Include="Response\" />
+    <EmbeddedResource Include="Pager\PageSplit.resx">
+      <DependentUpon>PageSplit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

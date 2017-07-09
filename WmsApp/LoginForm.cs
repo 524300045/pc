@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +30,30 @@ namespace WmsApp
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbUserName.Text.Trim()))
+            {
+                MessageBox.Show("用户名不能为空!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(tbPwd.Text.Trim()))
+            {
+                MessageBox.Show("密码不能为空!");
+                return;
+            }
+
+            try
+            {
+
+                UserInfo.UserName = tbUserName.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log("Login:"+ex.Message);
+                MessageBox.Show("出现异常"+ex.Message);
+            }
+           
+
             this.DialogResult = DialogResult.OK;
         }
     }

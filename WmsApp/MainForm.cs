@@ -78,7 +78,11 @@ namespace WmsApp
 
         private void tsbExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("确定要退出系统吗?")==DialogResult.OK)
+            {
+                Application.Exit();
+            }
+       
         }
     }
 }
