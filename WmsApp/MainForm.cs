@@ -84,5 +84,23 @@ namespace WmsApp
             }
        
         }
+
+        private void tsbPrePack_Click(object sender, EventArgs e)
+        {
+
+            AddToFrame(new PrePackageForm());
+        }
+
+        private void tsbBox_Click(object sender, EventArgs e)
+        {
+
+            AddToFrame(new BoxPrintForm());
+        }
+
+        private void tsbTaskQuery_Click(object sender, EventArgs e)
+        {
+
+            AddToFrame(new PackageTaskQueryForm());
+        }
     }
 }

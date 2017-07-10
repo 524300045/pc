@@ -68,13 +68,43 @@
     <Compile Include="PackageDetailForm.Designer.cs">
       <DependentUpon>PackageDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BoxPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoxPrintForm.Designer.cs">
+      <DependentUpon>BoxPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTaskQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageTaskQueryForm.Designer.cs">
+      <DependentUpon>PackageTaskQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePackageForm.Designer.cs">
+      <DependentUpon>PrePackageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PackageTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PackageTaskForm.Designer.cs">
       <DependentUpon>PackageTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintBoxForm.Designer.cs">
+      <DependentUpon>PrintBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
+    <Compile Include="PreWeightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreWeightForm.Designer.cs">
+      <DependentUpon>PreWeightForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeightForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,8 +141,20 @@
     <EmbeddedResource Include="PackageDetailForm.resx">
       <DependentUpon>PackageDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BoxPrintForm.resx">
+      <DependentUpon>BoxPrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageTaskQueryForm.resx">
+      <DependentUpon>PackageTaskQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePackageForm.resx">
+      <DependentUpon>PrePackageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageTaskForm.resx">
       <DependentUpon>PackageTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintBoxForm.resx">
+      <DependentUpon>PrintBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="TabWindow.resx">
       <DependentUpon>TabWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreWeightForm.resx">
+      <DependentUpon>PreWeightForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeightForm.resx">
       <DependentUpon>WeightForm.cs</DependentUpon>
