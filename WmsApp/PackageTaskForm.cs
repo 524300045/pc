@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sdbs.Wms.Controls.Pager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,32 +7,67 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Wms.Controls.Pager;
+using WmsSDK;
+using WmsSDK.Model;
+using WmsSDK.Request;
+using WmsSDK.Response;
 
 namespace WmsApp
 {
     public partial class PackageTaskForm : TabWindow
     {
+
+        private PaginatorDTO paginator;
+
+        private SortableBindingList<PackTask> sortList = null;
+
+        private IWMSClient client = null;
         public PackageTaskForm()
         {
             InitializeComponent();
+            client = new DefalutWMSClient();
         }
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
+            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
             cbStatus.SelectedIndex = 0;
-            int i = dataGridView1.Rows.Add();
-            this.dataGridView1.Rows[i].Cells[0].Value = "完成";
-            this.dataGridView1.Rows[i].Cells[1].Value = "100%";
-            this.dataGridView1.Rows[i].Cells[2].Value = "1234";
-            this.dataGridView1.Rows[i].Cells[3].Value = "大白菜";
-            this.dataGridView1.Rows[i].Cells[4].Value = "规格";
-            this.dataGridView1.Rows[i].Cells[5].Value = "斤";
-            this.dataGridView1.Rows[i].Cells[6].Value = "15";
-            this.dataGridView1.Rows[i].Cells[7].Value = "3";
-            this.dataGridView1.Rows[i].Cells[8].Value = "2";
-            this.dataGridView1.Rows[i].Cells[9].Value = "5斤";
-            this.dataGridView1.Rows[i].Cells[10].Value = "4";
+          
            
+        }
+
+        private void BindDgv()
+        {
+            PackTaskRequest request = new PackTaskRequest();
+            request.PageIndex = paginator.PageNo;
+            request.PageSize = paginator.PageSize;
+            request.deliveryDate = dtBegin.Value;
+            request.skuCode = tbName.Text.Trim();
+            request.status = 1;
+
+           PackTaskResponse  response=client.Execute(request);
+           if (response.IsError)
+           {
+               int recordCount = response.pageUtil.totalRow;
+               int totalPage;
+               if (recordCount % paginator.PageSize == 0)
+               {
+                   totalPage = recordCount / paginator.PageSize;
+               }
+               else
+               {
+                   totalPage = recordCount / paginator.PageSize + 1;
+               }
+               IPagedList<PackTask> pageList = new PagedList<PackTask>(response.result, recordCount, totalPage);
+               sortList = new SortableBindingList<PackTask>(pageList.ContentList);
+               this.dataGridView1.DataSource = sortList;
+               pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
+               pageSplit1.PageCount = pageList.PageCount;
+               pageSplit1.PageNo = paginator.PageNo;
+               pageSplit1.DataBind();
+           }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -68,12 +104,16 @@ namespace WmsApp
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
-
+            paginator.PageNo = 1;
+            BindDgv();
         }
 
-        private void BindDgv()
-        { 
-        
+        private void pageSplit1_PageChanged(object sender, EventArgs e)
+        {
+            paginator.PageNo = pageSplit1.PageNo;
+            BindDgv();
         }
+
+
     }
 }

@@ -70,18 +70,19 @@
     <Compile Include="HttpExtension.cs" />
     <Compile Include="IWMSClient.cs" />
     <Compile Include="IWMSRequest.cs" />
+    <Compile Include="Model\PackTask.cs" />
     <Compile Include="NetworkMonitor.cs" />
+    <Compile Include="PageUtil.cs" />
+    <Compile Include="PaginatorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\PackTaskRequest.cs" />
+    <Compile Include="Response\PackTaskResponse.cs" />
     <Compile Include="WMSResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Request\" />
-    <Folder Include="Response\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

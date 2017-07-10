@@ -20,14 +20,14 @@ namespace WmsSDK
     {
         static DefalutWMSClient()
         {
-            try
-            {
-                UserAgentString = "WmsSDK4NET." + Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }
-            catch
-            {
-                UserAgentString = "WmsSDK4NET";
-            }
+            //try
+            //{
+            //    UserAgentString = "WmsSDK4NET." + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            //}
+            //catch
+            //{
+            //    UserAgentString = "WmsSDK4NET";
+            //}
 
             #region 识别终端信息
             /*
@@ -47,23 +47,23 @@ IP地址：statistics-IP
 终端上次接收流量(字节)：statistics-LastBytesReceived
             */
             Properties.Clear();
-            Properties.Add("idc-id", "0");
-            Properties.Add("terminalId", terminalID);
-            try
-            {
-                Properties.Add("terminalVersion", Assembly.GetEntryAssembly().GetName().Version.ToString());
-            }
-            catch
-            {
-                Properties.Add("terminalVersion", "<异常>");
-            }
-            Properties.Add("deviceId", ComputerHelper.GetCPUID());
-            Properties.Add("warehouseId", "0");
-            Properties.Add("warehouseCode", "");
-            Properties.Add("warehouseName", "");
-            Properties.Add("currentUserId", "-1");
-            Properties.Add("currentUserName", "");
-            Properties.Add("statistics-IP", ComputerHelper.GetIPAddress());
+            //Properties.Add("idc-id", "0");
+            //Properties.Add("terminalId", terminalID);
+            //try
+            //{
+            //    Properties.Add("terminalVersion", Assembly.GetEntryAssembly().GetName().Version.ToString());
+            //}
+            //catch
+            //{
+            //    Properties.Add("terminalVersion", "<异常>");
+            //}
+            //Properties.Add("deviceId", ComputerHelper.GetCPUID());
+            //Properties.Add("warehouseId", "0");
+            //Properties.Add("warehouseCode", "");
+            //Properties.Add("warehouseName", "");
+            //Properties.Add("currentUserId", "-1");
+            //Properties.Add("currentUserName", "");
+            //Properties.Add("statistics-IP", ComputerHelper.GetIPAddress());
             string machineName = Environment.MachineName;
             try
             {
@@ -77,15 +77,15 @@ IP地址：statistics-IP
             {
                 machineName = Environment.MachineName;
             }
-            Properties.Add("statistics-TerminalName", machineName);
-            Properties.Add("statistics-TerminalType", "PC");
-            Properties.Add("statistics-SystemName", ComputerHelper.GetOSName());
-            Properties.Add("statistics-SystemVersion", Environment.OSVersion.Version.ToString());
-            Properties.Add("statistics-LastBytesSent", NetworkMonitor.LastBytesSent.ToString("F0"));
-            Properties.Add("statistics-LastBytesReceived", NetworkMonitor.LastBytesReceived.ToString("F0"));
-            Properties.Add("statistics-BytesSent", NetworkMonitor.GetSentBytes().ToString("F0"));
-            Properties.Add("statistics-BytesReceived", NetworkMonitor.GetReceivedBytes().ToString("F0"));
-            Properties.Add("Accept-Encoding", "gzip");
+            //Properties.Add("statistics-TerminalName", machineName);
+            //Properties.Add("statistics-TerminalType", "PC");
+            //Properties.Add("statistics-SystemName", ComputerHelper.GetOSName());
+            //Properties.Add("statistics-SystemVersion", Environment.OSVersion.Version.ToString());
+            //Properties.Add("statistics-LastBytesSent", NetworkMonitor.LastBytesSent.ToString("F0"));
+            //Properties.Add("statistics-LastBytesReceived", NetworkMonitor.LastBytesReceived.ToString("F0"));
+            //Properties.Add("statistics-BytesSent", NetworkMonitor.GetSentBytes().ToString("F0"));
+            //Properties.Add("statistics-BytesReceived", NetworkMonitor.GetReceivedBytes().ToString("F0"));
+            //Properties.Add("Accept-Encoding", "gzip");
 
             #endregion
         }
@@ -233,17 +233,17 @@ IP地址：statistics-IP
                 int currentMinute = DateTime.Now.Minute/*仅记录当前分钟数，可以使用DateTime.Now*/;
                 if (lastMinute != currentMinute)
                 {
-                    lastMinute = currentMinute;
-                    customHeaders["statistics-IP"] = ComputerHelper.GetIPAddress();
+                    //lastMinute = currentMinute;
+                    //customHeaders["statistics-IP"] = ComputerHelper.GetIPAddress();
                 }
-                lock (_bytesLocker)
-                {
-                    customHeaders["statistics-LastBytesSent"] = LastSentBytes.ToString("F0");
-                    customHeaders["statistics-LastBytesReceived"] = LastReceivedBytes.ToString("F0");
-                    LastSentBytes = LastReceivedBytes = 0;
-                }
-                customHeaders["statistics-BytesSent"] = SentBytes.ToString("F0");
-                customHeaders["statistics-BytesReceived"] = ReceivedBytes.ToString("F0");
+                //lock (_bytesLocker)
+                //{
+                //    customHeaders["statistics-LastBytesSent"] = LastSentBytes.ToString("F0");
+                //    customHeaders["statistics-LastBytesReceived"] = LastReceivedBytes.ToString("F0");
+                //    LastSentBytes = LastReceivedBytes = 0;
+                //}
+                //customHeaders["statistics-BytesSent"] = SentBytes.ToString("F0");
+                //customHeaders["statistics-BytesReceived"] = ReceivedBytes.ToString("F0");
                 string json = GetJson(request);
                 data.RequestContent = json;
                 string response = PostData(url, json, ref data, customHeaders);

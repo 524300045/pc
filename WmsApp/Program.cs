@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WmsSDK;
 
 namespace WmsApp
 {
@@ -34,7 +35,8 @@ namespace WmsApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            DefalutWMSClient.DefaultServiceAddress = " http://127.0.0.1:8089/webservice/services";
+       
             LoginForm loginForm = new LoginForm();
             loginForm.StartPosition = FormStartPosition.CenterParent;
             loginForm.FormBorderStyle = FormBorderStyle.FixedDialog;

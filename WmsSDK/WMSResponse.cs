@@ -43,7 +43,8 @@ namespace WmsSDK
         {
             get
             {
-                return !string.IsNullOrWhiteSpace(this.Code);
+                return this.Code !="200";
+               // return !string.IsNullOrWhiteSpace(this.Code);
             }
         }
     }
