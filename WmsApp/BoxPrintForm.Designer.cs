@@ -36,12 +36,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boxCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storedCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storedName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printMan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -133,12 +133,12 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.status,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column10});
+            this.boxCode,
+            this.storedCode,
+            this.storedName,
+            this.yn,
+            this.printTime,
+            this.printMan});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
@@ -147,36 +147,41 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
-            // status
+            // boxCode
             // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "箱码";
-            this.status.Name = "status";
+            this.boxCode.DataPropertyName = "boxCode";
+            this.boxCode.HeaderText = "箱码";
+            this.boxCode.Name = "boxCode";
             // 
-            // Column3
+            // storedCode
             // 
-            this.Column3.HeaderText = "门店编码";
-            this.Column3.Name = "Column3";
+            this.storedCode.DataPropertyName = "storedCode";
+            this.storedCode.HeaderText = "门店编码";
+            this.storedCode.Name = "storedCode";
             // 
-            // Column4
+            // storedName
             // 
-            this.Column4.HeaderText = "门店名称";
-            this.Column4.Name = "Column4";
+            this.storedName.DataPropertyName = "storedName";
+            this.storedName.HeaderText = "门店名称";
+            this.storedName.Name = "storedName";
             // 
-            // Column5
+            // yn
             // 
-            this.Column5.HeaderText = "状态";
-            this.Column5.Name = "Column5";
+            this.yn.DataPropertyName = "yn";
+            this.yn.HeaderText = "状态";
+            this.yn.Name = "yn";
             // 
-            // Column6
+            // printTime
             // 
-            this.Column6.HeaderText = "打印时间";
-            this.Column6.Name = "Column6";
+            this.printTime.DataPropertyName = "printTime";
+            this.printTime.HeaderText = "打印时间";
+            this.printTime.Name = "printTime";
             // 
-            // Column10
+            // printMan
             // 
-            this.Column10.HeaderText = "打印人";
-            this.Column10.Name = "Column10";
+            this.printMan.DataPropertyName = "printMan";
+            this.printMan.HeaderText = "打印人";
+            this.printMan.Name = "printMan";
             // 
             // BoxPrintForm
             // 
@@ -204,13 +209,13 @@
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Label label2;
         private Wms.Controls.Pager.PageSplit pageSplit1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.ComboBox cbStore;
         private System.Windows.Forms.Button btnBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn boxCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storedCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storedName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn printTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn printMan;
     }
 }

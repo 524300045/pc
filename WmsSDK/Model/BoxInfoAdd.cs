@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WmsSDK.Model
 {
-    public class BoxInfo
+    public class BoxInfoAdd
     {
         /** id */
         [JsonProperty("id")]
@@ -33,20 +33,20 @@ namespace WmsSDK.Model
         [JsonProperty("boxCode")]
         public String boxCode { get; set; }
         /** 打印时间 */
-        [JsonProperty("printTime")]
-        public DateTime printTime { get; set; }
+        //[JsonProperty("printTime")]
+        //public DateTime printTime;
         /** 打印人 */
         [JsonProperty("printMan")]
         public String printMan { get; set; }
         /** 创建时间 */
-        [JsonProperty("createTime")]
-        public DateTime createTime { get; set; }
+        //[JsonProperty("createTime")]
+        //public DateTime createTime;
         /** 创建人 */
         [JsonProperty("createUser")]
         public String createUser { get; set; }
         /** 更新时间 */
-        [JsonProperty("updateTime")]
-        public DateTime updateTime { get; set; }
+        //[JsonProperty("updateTime")]
+        //public DateTime updateTime;
         /** 更新人 */
         [JsonProperty("updateUser")]
         public String updateUser { get; set; }

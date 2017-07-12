@@ -37,14 +37,18 @@ namespace WmsApp
                 MessageBox.Show("打印数量必须大于0");
                 return;
             }
-
+            if (num>100)
+            {
+                  MessageBox.Show("数量不能大于100");
+                return;
+            }
             try
             {
-             
-                List<BoxInfo> list = new List<BoxInfo>();
+
+                List<BoxInfoAdd> list = new List<BoxInfoAdd>();
                 for (int i = 0; i < num; i++)
                 {
-                    BoxInfo boxInfo = new BoxInfo();
+                    BoxInfoAdd boxInfo = new BoxInfoAdd();
                     boxInfo.customerCode = UserInfo.PartnerCode;
                     boxInfo.customerName = UserInfo.PartnerName;
                     boxInfo.warehouseCode = UserInfo.WareHouseCode;

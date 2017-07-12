@@ -31,6 +31,7 @@ namespace WmsApp
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
+            this.dataGridView1.AutoGenerateColumns = false;
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
             bindStore();
         }
