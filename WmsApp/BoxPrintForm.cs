@@ -20,7 +20,7 @@ namespace WmsApp
 
         private PaginatorDTO paginator;
 
-        private SortableBindingList<PackTask> sortList = null;
+        private SortableBindingList<BoxInfo> sortList = null;
 
         private IWMSClient client = null;
         public BoxPrintForm()
@@ -32,19 +32,43 @@ namespace WmsApp
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
-          
+            bindStore();
+        }
+
+        private void bindStore()
+        {
+            StoreInfoRequest request = new StoreInfoRequest();
+           StoreInfoResponse response=client.Execute(request);
+           if (!response.IsError)
+           {
+               if (response.result!=null)
+               {
+                   List<StoreInfo> storeList=new List<StoreInfo>();
+                   foreach (StoreInfo item in  response.result)
+                   {
+                       storeList.Add(item);
+                   }
+
+                   storeList.Insert(0, new StoreInfo() { storedCode = "", storedName = "请选择" });
+               
+                   this.cbStore.DataSource = storeList;
+                   this.cbStore.ValueMember = "storedCode";
+                   this.cbStore.DisplayMember = "storedName";
+                   
+                
+               }
+           }
         }
 
         private void BindDgv()
         {
-            PackTaskRequest request = new PackTaskRequest();
+            BoxInfoRequest request = new BoxInfoRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
 
-            request.status = 1;
 
-           PackTaskResponse  response=client.Execute(request);
-           if (response.IsError)
+            BoxInfoResponse response = client.Execute(request);
+           if (!response.IsError)
            {
                int recordCount = response.pageUtil.totalRow;
                int totalPage;
@@ -56,8 +80,8 @@ namespace WmsApp
                {
                    totalPage = recordCount / paginator.PageSize + 1;
                }
-               IPagedList<PackTask> pageList = new PagedList<PackTask>(response.result, recordCount, totalPage);
-               sortList = new SortableBindingList<PackTask>(pageList.ContentList);
+               IPagedList<BoxInfo> pageList = new PagedList<BoxInfo>(response.result, recordCount, totalPage);
+               sortList = new SortableBindingList<BoxInfo>(pageList.ContentList);
                this.dataGridView1.DataSource = sortList;
                pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
                pageSplit1.PageCount = pageList.PageCount;
@@ -67,22 +91,7 @@ namespace WmsApp
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];
-                if (column is DataGridViewButtonColumn)
-                {
-                    //这里可以编写你需要的任意关于按钮事件的操作~
-                    PreWeightForm weightForm = new PreWeightForm();
-                    if (weightForm.ShowDialog()==DialogResult.OK)
-                    {
-                        
-                    }
-                }
-            }
-        }
+     
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {

@@ -10,6 +10,12 @@ namespace WmsApp
        public static string UserName;
 
 
+       public static string PartnerCode;
 
+       public static String PartnerName;
+
+       public static String WareHouseCode;
+
+       public static string WareHouseName;
     }
 }

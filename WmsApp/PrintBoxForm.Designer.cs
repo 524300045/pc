@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbNum = new System.Windows.Forms.TextBox();
-            this.cbMenDian = new System.Windows.Forms.ComboBox();
+            this.cbStore = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -60,13 +60,14 @@
             this.tbNum.Size = new System.Drawing.Size(115, 21);
             this.tbNum.TabIndex = 1;
             // 
-            // cbMenDian
+            // cbStore
             // 
-            this.cbMenDian.FormattingEnabled = true;
-            this.cbMenDian.Location = new System.Drawing.Point(135, 50);
-            this.cbMenDian.Name = "cbMenDian";
-            this.cbMenDian.Size = new System.Drawing.Size(121, 20);
-            this.cbMenDian.TabIndex = 2;
+            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStore.FormattingEnabled = true;
+            this.cbStore.Location = new System.Drawing.Point(135, 50);
+            this.cbStore.Name = "cbStore";
+            this.cbStore.Size = new System.Drawing.Size(121, 20);
+            this.cbStore.TabIndex = 2;
             // 
             // btnPrint
             // 
@@ -76,6 +77,7 @@
             this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "打印";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // PrintBoxForm
             // 
@@ -83,7 +85,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 244);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.cbMenDian);
+            this.Controls.Add(this.cbStore);
             this.Controls.Add(this.tbNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -92,6 +94,7 @@
             this.Name = "PrintBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "打印箱码";
+            this.Load += new System.EventHandler(this.PrintBoxForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,7 +105,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbNum;
-        private System.Windows.Forms.ComboBox cbMenDian;
+        private System.Windows.Forms.ComboBox cbStore;
         private System.Windows.Forms.Button btnPrint;
     }
 }

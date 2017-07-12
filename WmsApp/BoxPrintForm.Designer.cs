@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbStore = new System.Windows.Forms.ComboBox();
+            this.btnBox = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -40,8 +42,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnBox = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,7 +51,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbStore);
             this.groupBox1.Controls.Add(this.btnBox);
             this.groupBox1.Controls.Add(this.btnQuery);
             this.groupBox1.Controls.Add(this.label2);
@@ -61,6 +61,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
+            // 
+            // cbStore
+            // 
+            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStore.FormattingEnabled = true;
+            this.cbStore.Location = new System.Drawing.Point(85, 17);
+            this.cbStore.Name = "cbStore";
+            this.cbStore.Size = new System.Drawing.Size(121, 20);
+            this.cbStore.TabIndex = 2;
+            // 
+            // btnBox
+            // 
+            this.btnBox.Location = new System.Drawing.Point(428, 14);
+            this.btnBox.Name = "btnBox";
+            this.btnBox.Size = new System.Drawing.Size(75, 23);
+            this.btnBox.TabIndex = 1;
+            this.btnBox.Text = "打印箱码";
+            this.btnBox.UseVisualStyleBackColor = true;
+            this.btnBox.Click += new System.EventHandler(this.btnBox_Click);
             // 
             // btnQuery
             // 
@@ -126,7 +145,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1233, 368);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
             // status
@@ -160,24 +178,6 @@
             this.Column10.HeaderText = "打印人";
             this.Column10.Name = "Column10";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // btnBox
-            // 
-            this.btnBox.Location = new System.Drawing.Point(428, 14);
-            this.btnBox.Name = "btnBox";
-            this.btnBox.Size = new System.Drawing.Size(75, 23);
-            this.btnBox.TabIndex = 1;
-            this.btnBox.Text = "打印箱码";
-            this.btnBox.UseVisualStyleBackColor = true;
-            this.btnBox.Click += new System.EventHandler(this.btnBox_Click);
-            // 
             // BoxPrintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -210,7 +210,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbStore;
         private System.Windows.Forms.Button btnBox;
     }
 }
