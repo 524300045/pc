@@ -20,7 +20,7 @@ namespace WmsApp
 
         private PaginatorDTO paginator;
 
-        private SortableBindingList<PackTask> sortList = null;
+        private SortableBindingList<Goods> sortList = null;
 
         private IWMSClient client = null;
         public PrePackageForm()
@@ -37,13 +37,13 @@ namespace WmsApp
 
         private void BindDgv()
         {
-            PackTaskRequest request = new PackTaskRequest();
+            GoodsRequest request = new GoodsRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
-            request.skuCode = tbName.Text.Trim();
-            request.status = 1;
+            request.skuCode= tbName.Text.Trim();
+            request.goodsName = tbName.Text.Trim();
 
-           PackTaskResponse  response=client.Execute(request);
+            GoodsResponse response = client.Execute(request);
            if (response.IsError)
            {
                int recordCount = response.pageUtil.totalRow;
@@ -56,8 +56,8 @@ namespace WmsApp
                {
                    totalPage = recordCount / paginator.PageSize + 1;
                }
-               IPagedList<PackTask> pageList = new PagedList<PackTask>(response.result, recordCount, totalPage);
-               sortList = new SortableBindingList<PackTask>(pageList.ContentList);
+               IPagedList<Goods> pageList = new PagedList<Goods>(response.result, recordCount, totalPage);
+               sortList = new SortableBindingList<Goods>(pageList.ContentList);
                this.dataGridView1.DataSource = sortList;
                pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
                pageSplit1.PageCount = pageList.PageCount;

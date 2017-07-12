@@ -46,7 +46,7 @@ namespace WmsApp
             request.status = 1;
 
            PackTaskResponse  response=client.Execute(request);
-           if (response.IsError)
+           if (!response.IsError)
            {
                int recordCount = response.pageUtil.totalRow;
                int totalPage;

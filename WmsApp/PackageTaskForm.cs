@@ -1,4 +1,5 @@
-﻿using Sdbs.Wms.Controls.Pager;
+﻿using Common;
+using Sdbs.Wms.Controls.Pager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,9 +32,21 @@ namespace WmsApp
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
-            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
-            cbStatus.SelectedIndex = 0;
-          
+            try
+            {
+                this.dtBegin.Value = DateTime.Now.AddDays(-10);
+                this.dtEnd.Value = DateTime.Now.AddDays(10);
+                this.dataGridView1.AutoGenerateColumns = false;
+                paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
+                cbStatus.SelectedIndex = 0;
+                BindDgv();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log("PackageTaskForm_Load" + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+       
            
         }
 
@@ -42,13 +55,21 @@ namespace WmsApp
             PackTaskRequest request = new PackTaskRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
-            request.deliveryDate = dtBegin.Value;
+            request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
+           // request.deliveryDate = dtBegin.Value;
             request.skuCode = tbName.Text.Trim();
-            request.status = 1;
+            //request.status = 1;
 
            PackTaskResponse  response=client.Execute(request);
-           if (response.IsError)
+           if (!response.IsError)
            {
+               if (response.result==null)
+               {
+                   this.dataGridView1.DataSource = null;
+
+                   return;
+               }
                int recordCount = response.pageUtil.totalRow;
                int totalPage;
                if (recordCount % paginator.PageSize == 0)
@@ -77,8 +98,10 @@ namespace WmsApp
                 DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];
                 if (column is DataGridViewButtonColumn)
                 {
+                    long id =long.Parse(this.dataGridView1.CurrentRow.Cells["id"].Value.ToString());
+                    string taskCode = this.dataGridView1.CurrentRow.Cells["PackTaskCode"].Value.ToString();
                     //这里可以编写你需要的任意关于按钮事件的操作~
-                    WeightForm weightForm = new WeightForm();
+                    WeightForm weightForm = new WeightForm(id,taskCode);
                     if (weightForm.ShowDialog()==DialogResult.OK)
                     {
                         

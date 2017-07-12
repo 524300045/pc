@@ -37,12 +37,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnEsc = new System.Windows.Forms.Button();
             this.tbWeight = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbSkuInfo = new System.Windows.Forms.Label();
+            this.lbProcess = new System.Windows.Forms.Label();
+            this.lbStore = new System.Windows.Forms.Label();
+            this.lbOrderWeight = new System.Windows.Forms.Label();
+            this.lbUpDown = new System.Windows.Forms.Label();
+            this.lbPackNUM = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -135,71 +135,71 @@
             this.tbWeight.TabIndex = 0;
             this.tbWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWeight_KeyDown);
             // 
-            // label8
+            // lbSkuInfo
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(123, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(259, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "8927  菠菜|水洗|   5斤/包";
+            this.lbSkuInfo.AutoSize = true;
+            this.lbSkuInfo.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSkuInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbSkuInfo.Location = new System.Drawing.Point(123, 38);
+            this.lbSkuInfo.Name = "lbSkuInfo";
+            this.lbSkuInfo.Size = new System.Drawing.Size(259, 20);
+            this.lbSkuInfo.TabIndex = 0;
+            this.lbSkuInfo.Text = "8927  菠菜|水洗|   5斤/包";
             // 
-            // label9
+            // lbProcess
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(574, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 20);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "5 / 10   50%";
+            this.lbProcess.AutoSize = true;
+            this.lbProcess.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbProcess.Location = new System.Drawing.Point(574, 38);
+            this.lbProcess.Name = "lbProcess";
+            this.lbProcess.Size = new System.Drawing.Size(129, 20);
+            this.lbProcess.TabIndex = 0;
+            this.lbProcess.Text = "5 / 10   50%";
             // 
-            // label10
+            // lbStore
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label10.Location = new System.Drawing.Point(110, 113);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "绿茶朝阳店";
+            this.lbStore.AutoSize = true;
+            this.lbStore.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbStore.Location = new System.Drawing.Point(110, 113);
+            this.lbStore.Name = "lbStore";
+            this.lbStore.Size = new System.Drawing.Size(109, 20);
+            this.lbStore.TabIndex = 0;
+            this.lbStore.Text = "绿茶朝阳店";
             // 
-            // label11
+            // lbOrderWeight
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(297, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "15公斤";
+            this.lbOrderWeight.AutoSize = true;
+            this.lbOrderWeight.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbOrderWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbOrderWeight.Location = new System.Drawing.Point(297, 113);
+            this.lbOrderWeight.Name = "lbOrderWeight";
+            this.lbOrderWeight.Size = new System.Drawing.Size(69, 20);
+            this.lbOrderWeight.TabIndex = 0;
+            this.lbOrderWeight.Text = "15公斤";
             // 
-            // label12
+            // lbUpDown
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label12.Location = new System.Drawing.Point(497, 113);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "14斤 ~ 17斤";
+            this.lbUpDown.AutoSize = true;
+            this.lbUpDown.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbUpDown.Location = new System.Drawing.Point(497, 113);
+            this.lbUpDown.Name = "lbUpDown";
+            this.lbUpDown.Size = new System.Drawing.Size(119, 20);
+            this.lbUpDown.TabIndex = 0;
+            this.lbUpDown.Text = "14斤 ~ 17斤";
             // 
-            // label13
+            // lbPackNUM
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(719, 113);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(19, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "2";
+            this.lbPackNUM.AutoSize = true;
+            this.lbPackNUM.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPackNUM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbPackNUM.Location = new System.Drawing.Point(719, 113);
+            this.lbPackNUM.Name = "lbPackNUM";
+            this.lbPackNUM.Size = new System.Drawing.Size(19, 20);
+            this.lbPackNUM.TabIndex = 0;
+            this.lbPackNUM.Text = "2";
             // 
             // WeightForm
             // 
@@ -211,12 +211,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbPackNUM);
+            this.Controls.Add(this.lbUpDown);
+            this.Controls.Add(this.lbOrderWeight);
+            this.Controls.Add(this.lbStore);
+            this.Controls.Add(this.lbProcess);
+            this.Controls.Add(this.lbSkuInfo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -244,11 +244,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnEsc;
         private System.Windows.Forms.TextBox tbWeight;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbSkuInfo;
+        private System.Windows.Forms.Label lbProcess;
+        private System.Windows.Forms.Label lbStore;
+        private System.Windows.Forms.Label lbOrderWeight;
+        private System.Windows.Forms.Label lbUpDown;
+        private System.Windows.Forms.Label lbPackNUM;
     }
 }

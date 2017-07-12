@@ -36,6 +36,10 @@ namespace WmsSDK.Request
         [JsonProperty("status")]
         public int status { get; set; }
 
+        [JsonProperty("startTime")]
+        public string startTime { get; set; }
 
+        [JsonProperty("endTime")]
+        public string endTime { get; set; }
     }
 }
