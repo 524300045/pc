@@ -22,6 +22,7 @@ namespace WmsApp
 
         private SortableBindingList<Goods> sortList = null;
 
+        List<Goods> goodsList;
         private IWMSClient client = null;
         public PrePackageForm()
         {
@@ -31,8 +32,10 @@ namespace WmsApp
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
+            this.dataGridView1.AutoGenerateColumns = false;
+
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
-          
+            BindDgv();
         }
 
         private void BindDgv()
@@ -40,29 +43,43 @@ namespace WmsApp
             GoodsRequest request = new GoodsRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
-            request.skuCode= tbName.Text.Trim();
-            request.goodsName = tbName.Text.Trim();
+            //request.skuCode= "%"+tbName.Text.Trim()+"%";
+            if (!string.IsNullOrWhiteSpace(tbName.Text.Trim()))
+            {
+                request.goodsName = "%" + tbName.Text.Trim() + "%";
+            }
+       
+            request.isPreprocess = 1;
 
             GoodsResponse response = client.Execute(request);
-           if (response.IsError)
+           if (!response.IsError)
            {
-               int recordCount = response.pageUtil.totalRow;
-               int totalPage;
-               if (recordCount % paginator.PageSize == 0)
+               if (response.result == null)
                {
-                   totalPage = recordCount / paginator.PageSize;
+                   this.dataGridView1.DataSource = null;
                }
                else
                {
-                   totalPage = recordCount / paginator.PageSize + 1;
+                   int recordCount = response.pageUtil.totalRow;
+                   int totalPage;
+                   if (recordCount % paginator.PageSize == 0)
+                   {
+                       totalPage = recordCount / paginator.PageSize;
+                   }
+                   else
+                   {
+                       totalPage = recordCount / paginator.PageSize + 1;
+                   }
+                   IPagedList<Goods> pageList = new PagedList<Goods>(response.result, recordCount, totalPage);
+                   sortList = new SortableBindingList<Goods>(pageList.ContentList);
+                   goodsList = response.result;
+                   this.dataGridView1.DataSource = sortList;
+                   pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
+                   pageSplit1.PageCount = pageList.PageCount;
+                   pageSplit1.PageNo = paginator.PageNo;
+                   pageSplit1.DataBind();
                }
-               IPagedList<Goods> pageList = new PagedList<Goods>(response.result, recordCount, totalPage);
-               sortList = new SortableBindingList<Goods>(pageList.ContentList);
-               this.dataGridView1.DataSource = sortList;
-               pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
-               pageSplit1.PageCount = pageList.PageCount;
-               pageSplit1.PageNo = paginator.PageNo;
-               pageSplit1.DataBind();
+            
            }
 
         }
@@ -74,8 +91,14 @@ namespace WmsApp
                 DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];
                 if (column is DataGridViewButtonColumn)
                 {
+
+                    string skucode = this.dataGridView1.CurrentRow.Cells["skuCode"].Value.ToString();
+                    string goodsName = this.dataGridView1.CurrentRow.Cells["goodsName"].Value.ToString();
+
+                    int weight =int.Parse(this.dataGridView1.CurrentRow.Cells["weighed"].Value.ToString());
                     //这里可以编写你需要的任意关于按钮事件的操作~
-                    PreWeightForm weightForm = new PreWeightForm();
+                    Goods goods = goodsList.Where(p => p.skuCode==skucode).FirstOrDefault();
+                    PreWeightForm weightForm = new PreWeightForm(goods);
                     if (weightForm.ShowDialog()==DialogResult.OK)
                     {
                         

@@ -31,36 +31,38 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbCust = new System.Windows.Forms.ComboBox();
+            this.cbStore = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbPackageCode = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.dtBegin = new System.Windows.Forms.DateTimePicker();
             this.btnQuery = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skuCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outboundTaskCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storedName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,16 +72,18 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbCust);
+            this.groupBox1.Controls.Add(this.cbStore);
             this.groupBox1.Controls.Add(this.cbStatus);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbPackageCode);
             this.groupBox1.Controls.Add(this.tbName);
+            this.groupBox1.Controls.Add(this.dtEnd);
             this.groupBox1.Controls.Add(this.dtBegin);
             this.groupBox1.Controls.Add(this.btnQuery);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
@@ -88,16 +92,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
-            // cbCust
+            // cbStore
             // 
-            this.cbCust.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCust.FormattingEnabled = true;
-            this.cbCust.Items.AddRange(new object[] {
+            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStore.FormattingEnabled = true;
+            this.cbStore.Items.AddRange(new object[] {
             "请选择门店"});
-            this.cbCust.Location = new System.Drawing.Point(355, 20);
-            this.cbCust.Name = "cbCust";
-            this.cbCust.Size = new System.Drawing.Size(141, 20);
-            this.cbCust.TabIndex = 4;
+            this.cbStore.Location = new System.Drawing.Point(561, 19);
+            this.cbStore.Name = "cbStore";
+            this.cbStore.Size = new System.Drawing.Size(141, 20);
+            this.cbStore.TabIndex = 4;
             // 
             // cbStatus
             // 
@@ -105,20 +109,21 @@
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "请选择",
-            "未开始",
-            "包装中",
-            "完成"});
-            this.cbStatus.Location = new System.Drawing.Point(579, 21);
+            "新建",
+            "已分拣",
+            "已发运",
+            "作废"});
+            this.cbStatus.Location = new System.Drawing.Point(818, 21);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(98, 20);
             this.cbStatus.TabIndex = 4;
             // 
-            // textBox1
+            // tbPackageCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 21);
-            this.textBox1.TabIndex = 3;
+            this.tbPackageCode.Location = new System.Drawing.Point(89, 51);
+            this.tbPackageCode.Name = "tbPackageCode";
+            this.tbPackageCode.Size = new System.Drawing.Size(141, 21);
+            this.tbPackageCode.TabIndex = 3;
             // 
             // tbName
             // 
@@ -127,21 +132,29 @@
             this.tbName.Size = new System.Drawing.Size(141, 21);
             this.tbName.TabIndex = 3;
             // 
+            // dtEnd
+            // 
+            this.dtEnd.Location = new System.Drawing.Point(330, 20);
+            this.dtEnd.Name = "dtEnd";
+            this.dtEnd.Size = new System.Drawing.Size(117, 21);
+            this.dtEnd.TabIndex = 2;
+            // 
             // dtBegin
             // 
-            this.dtBegin.Location = new System.Drawing.Point(89, 18);
+            this.dtBegin.Location = new System.Drawing.Point(113, 19);
             this.dtBegin.Name = "dtBegin";
             this.dtBegin.Size = new System.Drawing.Size(117, 21);
             this.dtBegin.TabIndex = 2;
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(540, 51);
+            this.btnQuery.Location = new System.Drawing.Point(579, 51);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
             this.btnQuery.Text = "查询";
             this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // label5
             // 
@@ -155,7 +168,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(254, 24);
+            this.label4.Location = new System.Drawing.Point(493, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 0;
@@ -164,7 +177,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(538, 27);
+            this.label3.Location = new System.Drawing.Point(777, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 0;
@@ -179,20 +192,30 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "商品编码(名称):";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(241, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "配送结束日期:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(83, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "配送日期:";
+            this.label1.Text = "配送开始日期:";
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.pageSplit1);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 92);
             this.groupBox2.Name = "groupBox2";
@@ -200,6 +223,18 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "明细";
+            // 
+            // pageSplit1
+            // 
+            this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
+            this.pageSplit1.Description = "";
+            this.pageSplit1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pageSplit1.Location = new System.Drawing.Point(3, 326);
+            this.pageSplit1.Name = "pageSplit1";
+            this.pageSplit1.PageCount = 1;
+            this.pageSplit1.PageNo = 1;
+            this.pageSplit1.Size = new System.Drawing.Size(1233, 34);
+            this.pageSplit1.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -210,20 +245,19 @@
             this.Column1,
             this.Column12,
             this.Column13,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column14,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column15,
-            this.Column16,
-            this.Column17});
+            this.packageCode,
+            this.status,
+            this.skuCode,
+            this.goodsName,
+            this.modelNum,
+            this.goodsUnit,
+            this.createUser,
+            this.createTime,
+            this.outboundTaskCode,
+            this.storedName,
+            this.deliveryDate,
+            this.updateTime,
+            this.updateUser});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
@@ -263,75 +297,83 @@
             this.Column13.Text = "作废";
             this.Column13.UseColumnTextForButtonValue = true;
             // 
-            // Column2
+            // packageCode
             // 
-            this.Column2.HeaderText = "包装编码";
-            this.Column2.Name = "Column2";
+            this.packageCode.DataPropertyName = "packageCode";
+            this.packageCode.HeaderText = "包装编码";
+            this.packageCode.Name = "packageCode";
             // 
-            // Column3
+            // status
             // 
-            this.Column3.HeaderText = "状态";
-            this.Column3.Name = "Column3";
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "状态";
+            this.status.Name = "status";
             // 
-            // Column4
+            // skuCode
             // 
-            this.Column4.HeaderText = "商品编码";
-            this.Column4.Name = "Column4";
+            this.skuCode.DataPropertyName = "skuCode";
+            this.skuCode.HeaderText = "商品编码";
+            this.skuCode.Name = "skuCode";
             // 
-            // Column5
+            // goodsName
             // 
-            this.Column5.HeaderText = "商品名称";
-            this.Column5.Name = "Column5";
+            this.goodsName.DataPropertyName = "goodsName";
+            this.goodsName.HeaderText = "商品名称";
+            this.goodsName.Name = "goodsName";
             // 
-            // Column14
+            // modelNum
             // 
-            this.Column14.HeaderText = "规格";
-            this.Column14.Name = "Column14";
+            this.modelNum.DataPropertyName = "modelNum";
+            this.modelNum.HeaderText = "规格";
+            this.modelNum.Name = "modelNum";
             // 
-            // Column6
+            // goodsUnit
             // 
-            this.Column6.HeaderText = "单位";
-            this.Column6.Name = "Column6";
+            this.goodsUnit.DataPropertyName = "goodsUnit";
+            this.goodsUnit.HeaderText = "单位";
+            this.goodsUnit.Name = "goodsUnit";
             // 
-            // Column7
+            // createUser
             // 
-            this.Column7.HeaderText = "一级分类";
-            this.Column7.Name = "Column7";
+            this.createUser.DataPropertyName = "createUser";
+            this.createUser.HeaderText = "包装人员";
+            this.createUser.Name = "createUser";
             // 
-            // Column8
+            // createTime
             // 
-            this.Column8.HeaderText = "包装人员";
-            this.Column8.Name = "Column8";
+            this.createTime.DataPropertyName = "createTime";
+            this.createTime.HeaderText = "包装时间";
+            this.createTime.Name = "createTime";
             // 
-            // Column9
+            // outboundTaskCode
             // 
-            this.Column9.HeaderText = "包装时间";
-            this.Column9.Name = "Column9";
+            this.outboundTaskCode.DataPropertyName = "outboundTaskCode";
+            this.outboundTaskCode.HeaderText = "订单号";
+            this.outboundTaskCode.Name = "outboundTaskCode";
             // 
-            // Column10
+            // storedName
             // 
-            this.Column10.HeaderText = "订单号";
-            this.Column10.Name = "Column10";
+            this.storedName.DataPropertyName = "storedName";
+            this.storedName.HeaderText = "商户名称";
+            this.storedName.Name = "storedName";
             // 
-            // Column11
+            // deliveryDate
             // 
-            this.Column11.HeaderText = "商户名称";
-            this.Column11.Name = "Column11";
+            this.deliveryDate.DataPropertyName = "deliveryDate";
+            this.deliveryDate.HeaderText = "配送日期";
+            this.deliveryDate.Name = "deliveryDate";
             // 
-            // Column15
+            // updateTime
             // 
-            this.Column15.HeaderText = "配送日期";
-            this.Column15.Name = "Column15";
+            this.updateTime.DataPropertyName = "updateTime";
+            this.updateTime.HeaderText = "状态更新时间";
+            this.updateTime.Name = "updateTime";
             // 
-            // Column16
+            // updateUser
             // 
-            this.Column16.HeaderText = "状态更新时间";
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "状态更新人";
-            this.Column17.Name = "Column17";
+            this.updateUser.DataPropertyName = "updateUser";
+            this.updateUser.HeaderText = "状态更新人";
+            this.updateUser.Name = "updateUser";
             // 
             // PackageDetailForm
             // 
@@ -363,26 +405,28 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbCust;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbStore;
+        private System.Windows.Forms.TextBox tbPackageCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtEnd;
+        private System.Windows.Forms.Label label6;
+        private Wms.Controls.Pager.PageSplit pageSplit1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column12;
         private System.Windows.Forms.DataGridViewButtonColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packageCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skuCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outboundTaskCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storedName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateUser;
     }
 }

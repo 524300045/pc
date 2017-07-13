@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sdbs.Wms.Controls.Pager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,36 +7,39 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Wms.Controls.Pager;
+using WmsSDK;
+using WmsSDK.Model;
+using WmsSDK.Request;
+using WmsSDK.Response;
 
 namespace WmsApp
 {
     public partial class PackageDetailForm : TabWindow
     {
+
+        private PaginatorDTO paginator;
+
+        private SortableBindingList<PackageDetailQuery> sortList = null;
+
+
+        private IWMSClient client = null;
+
         public PackageDetailForm()
         {
             InitializeComponent();
+            client = new DefalutWMSClient();
         }
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
-            cbCust.SelectedIndex = 0;
+            cbStore.SelectedIndex = 0;
             cbStatus.SelectedIndex = 0;
-            int i = dataGridView1.Rows.Add();
+            this.dtBegin.Value = DateTime.Now.AddDays(-10);
+            this.dtEnd.Value = DateTime.Now.AddDays(10);
+            this.dataGridView1.AutoGenerateColumns = false;
+            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
 
-            this.dataGridView1.Rows[i].Cells[3].Value = "10035229770001";
-            this.dataGridView1.Rows[i].Cells[4].Value = "新建";
-            this.dataGridView1.Rows[i].Cells[5].Value = "1234";
-            this.dataGridView1.Rows[i].Cells[6].Value = "大白菜";
-            this.dataGridView1.Rows[i].Cells[7].Value = "3";
-            this.dataGridView1.Rows[i].Cells[8].Value = "斤";
-            this.dataGridView1.Rows[i].Cells[9].Value = "15";
-            this.dataGridView1.Rows[i].Cells[10].Value = "3";
-            this.dataGridView1.Rows[i].Cells[11].Value = "3";
-            this.dataGridView1.Rows[i].Cells[12].Value = "123";
-            this.dataGridView1.Rows[i].Cells[13].Value = "123";
-            this.dataGridView1.Rows[i].Cells[14].Value = "123";
-            this.dataGridView1.Rows[i].Cells[15].Value = "123";
-            this.dataGridView1.Rows[i].Cells[16].Value = "123";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,6 +59,27 @@ namespace WmsApp
             }
         }
 
+
+        private void bindStore()
+        {
+            StoreInfoRequest request = new StoreInfoRequest();
+            StoreInfoResponse response = client.Execute(request);
+            if (!response.IsError)
+            {
+                if (response.result != null)
+                {
+                    List<StoreInfo> storeList = new List<StoreInfo>();
+
+                    storeList = response.result;
+
+                    this.cbStore.DataSource = storeList;
+                    this.cbStore.DisplayMember = "storedName";
+                    this.cbStore.ValueMember = "storedCode";
+                    cbStore.SelectedIndex = 0;
+                }
+            }
+        }
+
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var grid = sender as DataGridView;
@@ -69,6 +94,69 @@ namespace WmsApp
 
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindDgv();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void BindDgv()
+        {
+            PackageDetailQueryRequest request = new PackageDetailQueryRequest();
+            request.skuCode = tbName.Text.Trim();
+            if (cbStore.SelectedValue!=null)
+            {
+                request.storedCode = cbStore.SelectedValue.ToString();
+            }
+          
+            request.packageCode = tbPackageCode.Text.Trim();
+            request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.PageIndex = paginator.PageNo;
+            request.PageSize = paginator.PageSize;
+
+
+            PackageDetailQueryResponse response = client.Execute(request);
+            if (!response.IsError)
+            {
+                if (response.result == null)
+                {
+                    this.dataGridView1.DataSource = null;
+
+                    return;
+                }
+                int recordCount = response.pageUtil.totalRow;
+                int totalPage;
+                if (recordCount % paginator.PageSize == 0)
+                {
+                    totalPage = recordCount / paginator.PageSize;
+                }
+                else
+                {
+                    totalPage = recordCount / paginator.PageSize + 1;
+                }
+                IPagedList<PackageDetailQuery> pageList = new PagedList<PackageDetailQuery>(response.result, recordCount, totalPage);
+                sortList = new SortableBindingList<PackageDetailQuery>(pageList.ContentList);
+                this.dataGridView1.DataSource = sortList;
+                pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
+                pageSplit1.PageCount = pageList.PageCount;
+                pageSplit1.PageNo = paginator.PageNo;
+                pageSplit1.DataBind();
+            }
+            else
+            { 
+            
+            }
+
         }
     }
 }

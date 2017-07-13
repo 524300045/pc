@@ -36,12 +36,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skuCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.physicsUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weighed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -121,12 +122,13 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.status,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column10,
+            this.skuCode,
+            this.goodsName,
+            this.goodsModel,
+            this.goodsUnit,
+            this.physicsUnit,
+            this.modelNum,
+            this.weighed,
             this.Column12});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
@@ -137,36 +139,47 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
-            // status
+            // skuCode
             // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "状态";
-            this.status.Name = "status";
+            this.skuCode.DataPropertyName = "skuCode";
+            this.skuCode.HeaderText = "商品编码";
+            this.skuCode.Name = "skuCode";
             // 
-            // Column3
+            // goodsName
             // 
-            this.Column3.HeaderText = "商品编码";
-            this.Column3.Name = "Column3";
+            this.goodsName.DataPropertyName = "goodsName";
+            this.goodsName.HeaderText = "商品名称";
+            this.goodsName.Name = "goodsName";
             // 
-            // Column4
+            // goodsModel
             // 
-            this.Column4.HeaderText = "商品名称";
-            this.Column4.Name = "Column4";
+            this.goodsModel.DataPropertyName = "goodsModel";
+            this.goodsModel.HeaderText = "规格";
+            this.goodsModel.Name = "goodsModel";
             // 
-            // Column5
+            // goodsUnit
             // 
-            this.Column5.HeaderText = "规格";
-            this.Column5.Name = "Column5";
+            this.goodsUnit.DataPropertyName = "goodsUnit";
+            this.goodsUnit.HeaderText = "计价单位";
+            this.goodsUnit.Name = "goodsUnit";
             // 
-            // Column6
+            // physicsUnit
             // 
-            this.Column6.HeaderText = "单位";
-            this.Column6.Name = "Column6";
+            this.physicsUnit.DataPropertyName = "physicsUnit";
+            this.physicsUnit.HeaderText = "物理单位";
+            this.physicsUnit.Name = "physicsUnit";
             // 
-            // Column10
+            // modelNum
             // 
-            this.Column10.HeaderText = "包装规格";
-            this.Column10.Name = "Column10";
+            this.modelNum.DataPropertyName = "modelNum";
+            this.modelNum.HeaderText = "包装规格";
+            this.modelNum.Name = "modelNum";
+            // 
+            // weighed
+            // 
+            this.weighed.DataPropertyName = "weighed";
+            this.weighed.HeaderText = "weighed";
+            this.weighed.Name = "weighed";
             // 
             // Column12
             // 
@@ -209,12 +222,13 @@
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Label label2;
         private Wms.Controls.Pager.PageSplit pageSplit1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skuCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsModel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn physicsUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weighed;
         private System.Windows.Forms.DataGridViewButtonColumn Column12;
     }
 }

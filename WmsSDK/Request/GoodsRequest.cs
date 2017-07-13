@@ -34,5 +34,8 @@ namespace WmsSDK.Request
           public int PageSize { get; set; }
 
 
+          public int isPreprocess { get; set; }
+
+
     }
 }
