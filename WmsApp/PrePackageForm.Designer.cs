@@ -144,42 +144,49 @@
             this.skuCode.DataPropertyName = "skuCode";
             this.skuCode.HeaderText = "商品编码";
             this.skuCode.Name = "skuCode";
+            this.skuCode.ReadOnly = true;
             // 
             // goodsName
             // 
             this.goodsName.DataPropertyName = "goodsName";
             this.goodsName.HeaderText = "商品名称";
             this.goodsName.Name = "goodsName";
+            this.goodsName.ReadOnly = true;
             // 
             // goodsModel
             // 
             this.goodsModel.DataPropertyName = "goodsModel";
             this.goodsModel.HeaderText = "规格";
             this.goodsModel.Name = "goodsModel";
+            this.goodsModel.ReadOnly = true;
             // 
             // goodsUnit
             // 
             this.goodsUnit.DataPropertyName = "goodsUnit";
             this.goodsUnit.HeaderText = "计价单位";
             this.goodsUnit.Name = "goodsUnit";
+            this.goodsUnit.ReadOnly = true;
             // 
             // physicsUnit
             // 
             this.physicsUnit.DataPropertyName = "physicsUnit";
             this.physicsUnit.HeaderText = "物理单位";
             this.physicsUnit.Name = "physicsUnit";
+            this.physicsUnit.ReadOnly = true;
             // 
             // modelNum
             // 
             this.modelNum.DataPropertyName = "modelNum";
             this.modelNum.HeaderText = "包装规格";
             this.modelNum.Name = "modelNum";
+            this.modelNum.ReadOnly = true;
             // 
             // weighed
             // 
             this.weighed.DataPropertyName = "weighed";
             this.weighed.HeaderText = "weighed";
             this.weighed.Name = "weighed";
+            this.weighed.Visible = false;
             // 
             // Column12
             // 

@@ -31,12 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbWeight = new System.Windows.Forms.Label();
             this.btnEsc = new System.Windows.Forms.Button();
             this.tbWeight = new System.Windows.Forms.TextBox();
             this.lbSkuInfo = new System.Windows.Forms.Label();
             this.lbCount = new System.Windows.Forms.Label();
             this.lbUpDown = new System.Windows.Forms.Label();
+            this.lbStandPackage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbModelNum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -69,15 +72,16 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "上下限:";
             // 
-            // label7
+            // lbWeight
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(45, 216);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "称重:";
+            this.lbWeight.AutoSize = true;
+            this.lbWeight.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbWeight.Location = new System.Drawing.Point(45, 216);
+            this.lbWeight.Name = "lbWeight";
+            this.lbWeight.Size = new System.Drawing.Size(59, 20);
+            this.lbWeight.TabIndex = 0;
+            this.lbWeight.Text = "称重:";
+            this.lbWeight.Visible = false;
             // 
             // btnEsc
             // 
@@ -93,7 +97,7 @@
             // tbWeight
             // 
             this.tbWeight.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbWeight.Location = new System.Drawing.Point(127, 214);
+            this.tbWeight.Location = new System.Drawing.Point(174, 207);
             this.tbWeight.Name = "tbWeight";
             this.tbWeight.Size = new System.Drawing.Size(156, 38);
             this.tbWeight.TabIndex = 0;
@@ -132,6 +136,38 @@
             this.lbUpDown.TabIndex = 0;
             this.lbUpDown.Text = "14斤 ~ 17斤";
             // 
+            // lbStandPackage
+            // 
+            this.lbStandPackage.AutoSize = true;
+            this.lbStandPackage.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbStandPackage.Location = new System.Drawing.Point(45, 216);
+            this.lbStandPackage.Name = "lbStandPackage";
+            this.lbStandPackage.Size = new System.Drawing.Size(119, 20);
+            this.lbStandPackage.TabIndex = 0;
+            this.lbStandPackage.Text = "标准包裹数:";
+            this.lbStandPackage.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(498, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "标准包规:";
+            // 
+            // lbModelNum
+            // 
+            this.lbModelNum.AutoSize = true;
+            this.lbModelNum.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbModelNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbModelNum.Location = new System.Drawing.Point(603, 96);
+            this.lbModelNum.Name = "lbModelNum";
+            this.lbModelNum.Size = new System.Drawing.Size(129, 20);
+            this.lbModelNum.TabIndex = 0;
+            this.lbModelNum.Text = "5 / 10   50%";
+            // 
             // PreWeightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -140,11 +176,14 @@
             this.Controls.Add(this.tbWeight);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbUpDown);
+            this.Controls.Add(this.lbModelNum);
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.lbSkuInfo);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbStandPackage);
+            this.Controls.Add(this.lbWeight);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -163,11 +202,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbWeight;
         private System.Windows.Forms.Button btnEsc;
         private System.Windows.Forms.TextBox tbWeight;
         private System.Windows.Forms.Label lbSkuInfo;
         private System.Windows.Forms.Label lbCount;
         private System.Windows.Forms.Label lbUpDown;
+        private System.Windows.Forms.Label lbStandPackage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbModelNum;
     }
 }

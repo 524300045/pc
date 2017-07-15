@@ -34,8 +34,10 @@ namespace WmsApp
         {
             try
             {
-                this.dtBegin.Value = DateTime.Now.AddDays(-10);
-                this.dtEnd.Value = DateTime.Now.AddDays(10);
+
+                dtBegin.Value = DateTime.Today.AddDays(1).AddDays(-1);
+                dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
+
                 this.dataGridView1.AutoGenerateColumns = false;
                 paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
                 cbStatus.SelectedIndex = 0;
@@ -46,8 +48,8 @@ namespace WmsApp
                 LogHelper.Log("PackageTaskForm_Load" + ex.Message);
                 MessageBox.Show(ex.Message);
             }
-       
-           
+
+
         }
 
         private void BindDgv()
@@ -57,37 +59,73 @@ namespace WmsApp
             request.PageSize = paginator.PageSize;
             request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
             request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
-           // request.deliveryDate = dtBegin.Value;
+            request.partnerCode = UserInfo.PartnerCode;
             request.skuCode = tbName.Text.Trim();
-            //request.status = 1;
 
-           PackTaskResponse  response=client.Execute(request);
-           if (!response.IsError)
-           {
-               if (response.result==null)
-               {
-                   this.dataGridView1.DataSource = null;
+            if (cbStatus.SelectedIndex == 0)
+            {
+                request.status = null;
+            }
+            if (cbStatus.SelectedIndex == 1)
+            {
+                request.status = 0;
+            }
+            if (cbStatus.SelectedIndex == 2)
+            {
+                request.status = 10;
+            }
 
-                   return;
-               }
-               int recordCount = response.pageUtil.totalRow;
-               int totalPage;
-               if (recordCount % paginator.PageSize == 0)
-               {
-                   totalPage = recordCount / paginator.PageSize;
-               }
-               else
-               {
-                   totalPage = recordCount / paginator.PageSize + 1;
-               }
-               IPagedList<PackTask> pageList = new PagedList<PackTask>(response.result, recordCount, totalPage);
-               sortList = new SortableBindingList<PackTask>(pageList.ContentList);
-               this.dataGridView1.DataSource = sortList;
-               pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
-               pageSplit1.PageCount = pageList.PageCount;
-               pageSplit1.PageNo = paginator.PageNo;
-               pageSplit1.DataBind();
-           }
+            if (cbStatus.SelectedIndex == 3)
+            {
+                request.status = 15;
+            }
+
+            if (cbStatus.SelectedIndex == 4)
+            {
+                request.status = 20;
+            }
+
+            PackTaskResponse response = client.Execute(request);
+            if (!response.IsError)
+            {
+                if (response.result == null)
+                {
+                    this.dataGridView1.DataSource = null;
+
+                    return;
+                }
+                int recordCount = response.pageUtil.totalRow;
+                int totalPage;
+                if (recordCount % paginator.PageSize == 0)
+                {
+                    totalPage = recordCount / paginator.PageSize;
+                }
+                else
+                {
+                    totalPage = recordCount / paginator.PageSize + 1;
+                }
+
+                foreach (PackTask item in response.result)
+                {
+                    if (item.modelNum > 0)
+                    {
+                        decimal curValue = item.orderCount / item.modelNum;
+                        item.StandNum = (int)curValue;
+                    }
+                    if (item.orderNum > 0)
+                    {
+                        item.progressDes = ((item.finishNum / item.orderNum) * 100).ToString() + "%";
+                    }
+
+                }
+                IPagedList<PackTask> pageList = new PagedList<PackTask>(response.result, recordCount, totalPage);
+                sortList = new SortableBindingList<PackTask>(pageList.ContentList);
+                this.dataGridView1.DataSource = sortList;
+                pageSplit1.Description = "共查询到" + pageList.RecordCount + "条记录";
+                pageSplit1.PageCount = pageList.PageCount;
+                pageSplit1.PageNo = paginator.PageNo;
+                pageSplit1.DataBind();
+            }
 
         }
 
@@ -98,13 +136,25 @@ namespace WmsApp
                 DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];
                 if (column is DataGridViewButtonColumn)
                 {
-                    long id =long.Parse(this.dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-                    string taskCode = this.dataGridView1.CurrentRow.Cells["PackTaskCode"].Value.ToString();
-                    //这里可以编写你需要的任意关于按钮事件的操作~
-                    WeightForm weightForm = new WeightForm(id,taskCode);
-                    if (weightForm.ShowDialog()==DialogResult.OK)
+
+                        int status = int.Parse(this.dataGridView1.CurrentRow.Cells["status"].Value.ToString());
+                    if (status==15||status==20)
                     {
-                        
+                        MessageBox.Show("当前任务已完成");
+                        return;
+                    }
+
+                    long id = long.Parse(this.dataGridView1.CurrentRow.Cells["id"].Value.ToString());
+                    string taskCode = this.dataGridView1.CurrentRow.Cells["PackTaskCode"].Value.ToString();
+                    decimal orderCount = decimal.Parse(this.dataGridView1.CurrentRow.Cells["orderCount"].Value.ToString());
+                    int standNum=int.Parse(this.dataGridView1.CurrentRow.Cells["StandNum"].Value.ToString());
+                    int orderNum=int.Parse(this.dataGridView1.CurrentRow.Cells["orderNum"].Value.ToString());
+                    string processDes = this.dataGridView1.CurrentRow.Cells["progressDes"].Value.ToString();
+                    //这里可以编写你需要的任意关于按钮事件的操作~
+                    WeightForm weightForm = new WeightForm(id, taskCode, orderCount, standNum, processDes, orderNum);
+                    if (weightForm.ShowDialog() == DialogResult.OK)
+                    {
+                        BindDgv();
                     }
                 }
             }

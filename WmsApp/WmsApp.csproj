@@ -60,6 +60,9 @@
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
       <HintPath>.\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
+    <Reference Include="zxing">
+      <HintPath>..\lib\zxing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PackageDetailForm.cs">

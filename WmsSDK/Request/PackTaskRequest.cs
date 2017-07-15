@@ -11,8 +11,13 @@ namespace WmsSDK.Request
     {
         public string GetAPIPath()
         {
-            return "/packTask/getPackTaskList";
+            return "/packTask/getPackTaskListTrace";
         }
+
+        /** 供应商编码 */
+           [JsonProperty("partnerCode")]
+        public String partnerCode { get; set; }
+
 
         /// <summary>
         /// 页码
@@ -26,20 +31,23 @@ namespace WmsSDK.Request
         [JsonProperty("pageSize")]
         public int PageSize { get; set; }
 
-        [JsonProperty("deliveryDate")]
-        public DateTime? deliveryDate { get; set; }
+        //[JsonProperty("deliveryDate")]
+        //public DateTime? deliveryDate { get; set; }
 
         [JsonProperty("skuCode")]
         public string skuCode { get; set; }
 
 
         [JsonProperty("status")]
-        public int status { get; set; }
+        public int? status { get; set; }
 
         [JsonProperty("startTime")]
         public string startTime { get; set; }
 
         [JsonProperty("endTime")]
         public string endTime { get; set; }
+
+               [JsonProperty("packTaskCode")]
+        public string packTaskCode { get; set; }
     }
 }

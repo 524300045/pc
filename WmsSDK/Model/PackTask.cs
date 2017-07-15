@@ -79,5 +79,64 @@ namespace WmsSDK.Model
 
         [JsonProperty("yn")]
         public int yn { get; set; }
+
+         [JsonProperty("modelNum")]
+        public decimal modelNum { get; set; }
+
+         [JsonProperty("goodsUnit")]
+        public String goodsUnit { get; set; }
+
+         [JsonProperty("physicsUnit")]
+        public String physicsUnit { get; set; }
+
+
+
+         [JsonProperty("finishNum")]
+         public int finishNum { get; set; }
+
+
+         public string progressDes { get; set; }
+        /// <summary>
+        /// 标准报数
+        /// </summary>
+         public int StandNum { get; set; }
+
+
+          //实际数量
+           [JsonProperty("realWeight")]
+         public decimal realWeight { get; set; }
+
+        //包裹数量
+         [JsonProperty("packageNum")]
+         public int packageNum { get; set; }
+
+
+        public string statusdes
+        {
+            get
+            {
+                if (status==0)
+                {
+                    return "新建";
+                }
+
+                if (status == 10)
+                {
+                    return "包装中";
+                }
+
+                if (status == 15)
+                {
+                    return "已完成";
+                }
+
+                if (status == 20)
+                {
+                    return "关闭";
+                }
+
+                return "";
+            }
+        }
     }
 }

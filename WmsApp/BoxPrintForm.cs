@@ -125,6 +125,8 @@ namespace WmsApp
         {
             PrintBoxForm form = new PrintBoxForm();
             form.ShowDialog();
+
+            BindDgv();
         }
 
 

@@ -47,11 +47,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.packageCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skuCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -242,11 +243,12 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.id,
             this.Column12,
             this.Column13,
             this.packageCode,
             this.status,
+            this.statusDes,
             this.skuCode,
             this.goodsName,
             this.modelNum,
@@ -267,10 +269,12 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
-            // Column1
+            // id
             // 
-            this.Column1.HeaderText = "选择";
-            this.Column1.Name = "Column1";
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
             // 
             // Column12
             // 
@@ -306,8 +310,15 @@
             // status
             // 
             this.status.DataPropertyName = "status";
-            this.status.HeaderText = "状态";
+            this.status.HeaderText = "status";
             this.status.Name = "status";
+            this.status.Visible = false;
+            // 
+            // statusDes
+            // 
+            this.statusDes.DataPropertyName = "statusDes";
+            this.statusDes.HeaderText = "状态";
+            this.statusDes.Name = "statusDes";
             // 
             // skuCode
             // 
@@ -412,11 +423,12 @@
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label6;
         private Wms.Controls.Pager.PageSplit pageSplit1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewButtonColumn Column12;
         private System.Windows.Forms.DataGridViewButtonColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn packageCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDes;
         private System.Windows.Forms.DataGridViewTextBoxColumn skuCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelNum;

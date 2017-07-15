@@ -41,13 +41,20 @@ namespace WmsApp
             PackTaskRequest request = new PackTaskRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
-            request.deliveryDate = dtBegin.Value;
+            request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
             request.skuCode = tbName.Text.Trim();
-            request.status = 1;
+            request.packTaskCode = tbTaskCode.Text.Trim();
 
            PackTaskResponse  response=client.Execute(request);
            if (!response.IsError)
            {
+
+               if (response.result==null)
+               {
+                   this.dataGridView1.DataSource = null;
+                   return;
+               }
                int recordCount = response.pageUtil.totalRow;
                int totalPage;
                if (recordCount % paginator.PageSize == 0)
@@ -111,6 +118,11 @@ namespace WmsApp
         {
             paginator.PageNo = pageSplit1.PageNo;
             BindDgv();
+        }
+
+        private void dtEnd_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
 

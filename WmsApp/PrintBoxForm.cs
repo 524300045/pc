@@ -68,9 +68,18 @@ namespace WmsApp
                 if (!response.IsError)
                 {
                     //开始打印
+                    if (response.result!=null)
+                    {
+                        //循环打印
+                        foreach (BoxInfo item in response.result)
+                        {
+                            
+                        }
+                    }
 
                 }
 
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception)
             {

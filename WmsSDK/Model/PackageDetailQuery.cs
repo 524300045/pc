@@ -66,5 +66,30 @@ namespace WmsSDK.Response
         /** 创建时间 */
         [JsonProperty("deliveryDate")]
         public DateTime deliveryDate { get; set; }
+
+        public string statusDes { 
+            get
+            {
+                if (status == 0)
+                {
+                    return "新建";
+                }
+
+                if (status == 10)
+                {
+                    return "包装中";
+                }
+                if (status == 20)
+                {
+                    return "已发运";
+                }
+                if (status ==90)
+                {
+                    return "作废";
+                }
+                return "";
+            }
+  
+        }
     }
 }

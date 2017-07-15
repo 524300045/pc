@@ -75,6 +75,9 @@ namespace WmsSDK.Model
           [JsonProperty("progress")]
         public int progress { get; set; }
 
+             [JsonProperty("finishNum")]
+          public int finishNum { get; set; }
+
           [JsonProperty("outboundTaskCode")]
           public string outboundTaskCode { get; set; }
     }

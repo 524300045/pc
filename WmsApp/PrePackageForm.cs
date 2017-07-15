@@ -94,8 +94,7 @@ namespace WmsApp
 
                     string skucode = this.dataGridView1.CurrentRow.Cells["skuCode"].Value.ToString();
                     string goodsName = this.dataGridView1.CurrentRow.Cells["goodsName"].Value.ToString();
-
-                    int weight =int.Parse(this.dataGridView1.CurrentRow.Cells["weighed"].Value.ToString());
+                   // int weighted =int.Parse(this.dataGridView1.CurrentRow.Cells["weighed"].Value.ToString());
                     //这里可以编写你需要的任意关于按钮事件的操作~
                     Goods goods = goodsList.Where(p => p.skuCode==skucode).FirstOrDefault();
                     PreWeightForm weightForm = new PreWeightForm(goods);

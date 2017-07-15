@@ -7,5 +7,13 @@ namespace WmsSDK.Response
 {
   public    class PackageResponse : WMSResponse
     {
+      public string result;
     }
+
+
+  public class PackageDelResponse : WMSResponse
+  {
+
+      public string result;
+  }
 }

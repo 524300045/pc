@@ -50,10 +50,27 @@ namespace WmsApp
                 if (column is DataGridViewButtonColumn)
                 {
                     //这里可以编写你需要的任意关于按钮事件的操作~
-                    WeightForm weightForm = new WeightForm();
-                    if (weightForm.ShowDialog()==DialogResult.OK)
+                    if (column.Name == "Column13")
                     {
-                        
+                        long id = long.Parse(this.dataGridView1.CurrentRow.Cells["id"].Value.ToString());
+                        //作废
+                        PackageDelRequest delRequest = new PackageDelRequest();
+                        delRequest.id = id;
+                        delRequest.updateUser = UserInfo.UserName;
+                        PackageDelResponse response = client.Execute(delRequest);
+                        if (!response.IsError)
+                        {
+                            BindDgv();
+                        }
+                        else
+                        {
+                            MessageBox.Show("作废失败");
+                        }
+                    }
+                    if (column.Name == "Column12")
+                    {
+                        //重打印
+
                     }
                 }
             }
@@ -102,10 +119,9 @@ namespace WmsApp
             {
                 BindDgv();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -113,11 +129,11 @@ namespace WmsApp
         {
             PackageDetailQueryRequest request = new PackageDetailQueryRequest();
             request.skuCode = tbName.Text.Trim();
-            if (cbStore.SelectedValue!=null)
+            if (cbStore.SelectedValue != null)
             {
                 request.storedCode = cbStore.SelectedValue.ToString();
             }
-          
+
             request.packageCode = tbPackageCode.Text.Trim();
             request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
             request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
@@ -153,8 +169,8 @@ namespace WmsApp
                 pageSplit1.DataBind();
             }
             else
-            { 
-            
+            {
+
             }
 
         }

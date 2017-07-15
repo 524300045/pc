@@ -75,6 +75,7 @@
     <Compile Include="Model\Goods.cs" />
     <Compile Include="Model\PackTask.cs" />
     <Compile Include="Model\PackTaskDetail.cs" />
+    <Compile Include="Model\PreprocessInfo.cs" />
     <Compile Include="Model\PreprocessInfoAdd.cs" />
     <Compile Include="Model\StoreInfo.cs" />
     <Compile Include="NetworkMonitor.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Request\BoxInfoAddRequest.cs" />
     <Compile Include="Request\BoxInfoRequest.cs" />
     <Compile Include="Request\GoodsRequest.cs" />
+    <Compile Include="Request\PackageDelRequest.cs" />
     <Compile Include="Request\PackageDetailQueryRequest.cs" />
     <Compile Include="Request\PackageRequest.cs" />
     <Compile Include="Request\PackTaskCodeRequest.cs" />
