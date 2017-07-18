@@ -36,18 +36,18 @@ namespace WmsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DefalutWMSClient.DefaultServiceAddress = " http://127.0.0.1:8089/webservice/services";
-       
-            LoginForm loginForm = new LoginForm();
-            loginForm.StartPosition = FormStartPosition.CenterParent;
-            loginForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            loginForm.ShowDialog();
-            if (loginForm.DialogResult != DialogResult.OK)
-            {
-                Application.Exit();
-                return;
-            }
+            Application.Run(new Form1());
+            //LoginForm loginForm = new LoginForm();
+            //loginForm.StartPosition = FormStartPosition.CenterParent;
+            //loginForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //loginForm.ShowDialog();
+            //if (loginForm.DialogResult != DialogResult.OK)
+            //{
+            //    Application.Exit();
+            //    return;
+            //}
 
-            Application.Run(MainForm.Instance);
+           // Application.Run(MainForm.Instance);
            
         }
 
