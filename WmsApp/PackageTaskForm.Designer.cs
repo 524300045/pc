@@ -42,10 +42,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.statusdes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PackTaskCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusdes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.progressDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skuCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -197,10 +197,10 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.statusdes,
             this.id,
             this.status,
             this.PackTaskCode,
+            this.statusdes,
             this.progressDes,
             this.skuCode,
             this.goodsName,
@@ -220,13 +220,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
-            // 
-            // statusdes
-            // 
-            this.statusdes.DataPropertyName = "statusdes";
-            this.statusdes.HeaderText = "状态";
-            this.statusdes.Name = "statusdes";
-            this.statusdes.ReadOnly = true;
             // 
             // id
             // 
@@ -248,6 +241,13 @@
             this.PackTaskCode.HeaderText = "任务单号";
             this.PackTaskCode.Name = "PackTaskCode";
             this.PackTaskCode.ReadOnly = true;
+            // 
+            // statusdes
+            // 
+            this.statusdes.DataPropertyName = "statusdes";
+            this.statusdes.HeaderText = "状态";
+            this.statusdes.Name = "statusdes";
+            this.statusdes.ReadOnly = true;
             // 
             // progressDes
             // 
@@ -365,10 +365,10 @@
         private Wms.Controls.Pager.PageSplit pageSplit1;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusdes;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn PackTaskCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusdes;
         private System.Windows.Forms.DataGridViewTextBoxColumn progressDes;
         private System.Windows.Forms.DataGridViewTextBoxColumn skuCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;

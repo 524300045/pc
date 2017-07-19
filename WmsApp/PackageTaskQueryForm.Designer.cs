@@ -41,7 +41,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PackTaskCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusdes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skuCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,7 +186,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.status,
+            this.PackTaskCode,
             this.statusdes,
             this.warehouseCode,
             this.skuCode,
@@ -207,12 +207,12 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
-            // status
+            // PackTaskCode
             // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "任务单号";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
+            this.PackTaskCode.DataPropertyName = "PackTaskCode";
+            this.PackTaskCode.HeaderText = "任务单号";
+            this.PackTaskCode.Name = "PackTaskCode";
+            this.PackTaskCode.ReadOnly = true;
             // 
             // statusdes
             // 
@@ -324,7 +324,7 @@
         private System.Windows.Forms.TextBox tbTaskCode;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PackTaskCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusdes;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn skuCode;
