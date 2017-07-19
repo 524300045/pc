@@ -49,5 +49,11 @@ namespace WmsSDK.Request
 
                [JsonProperty("packTaskCode")]
         public string packTaskCode { get; set; }
+
+        /// <summary>
+        /// 10订单加工 ，20预加工
+        /// </summary>
+             [JsonProperty("packTaskType")]
+               public int? packTaskType { get; set; }
     }
 }

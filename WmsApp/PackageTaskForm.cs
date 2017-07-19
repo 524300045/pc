@@ -61,6 +61,7 @@ namespace WmsApp
             request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
             request.partnerCode = UserInfo.PartnerCode;
             request.skuCode = tbName.Text.Trim();
+            request.packTaskType = 10;
 
             if (cbStatus.SelectedIndex == 0)
             {

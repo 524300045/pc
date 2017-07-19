@@ -157,7 +157,7 @@ namespace WmsApp
                 PackageRequest request = new PackageRequest();
                 request.packTaskDetailId = curTaskDetailId;
                 request.processUser = UserInfo.UserName;
-                request.weight =decimal.Parse(tbWeight.Text.Trim());
+                request.weight =decimal.Parse(tbWeight.Text.Trim())*2;
                 request.packTaskCode = taskCode;
                 request.outboundTaskCode = curOutStockCode;
                 request.skuCode = curSkuCode;
@@ -183,6 +183,8 @@ namespace WmsApp
                        document.PrintController.OnEndPrint(document, new PrintEventArgs());
                    }
                    //打印，加载下一个
+                   ClearForm();
+                   tbWeight.Text = "";
                    ShowDetail();
                }
             }

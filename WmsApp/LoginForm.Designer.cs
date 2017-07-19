@@ -52,7 +52,7 @@
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(167, 21);
             this.tbUserName.TabIndex = 0;
-            this.tbUserName.Text = "001";
+            this.tbUserName.Text = "10";
             this.tbUserName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2

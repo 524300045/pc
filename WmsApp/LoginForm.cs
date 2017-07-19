@@ -47,9 +47,9 @@ namespace WmsApp
 
                 UserInfo.UserName = tbUserName.Text.Trim();
                 UserInfo.PartnerName = tbUserName.Text.Trim();
-                UserInfo.PartnerCode ="1";
-                UserInfo.WareHouseCode = "1";
-                UserInfo.WareHouseName = "北京";
+                UserInfo.PartnerCode = tbUserName.Text.Trim();
+                UserInfo.WareHouseCode = "10";
+                UserInfo.WareHouseName = "北京康安利丰平谷1仓";
                 
             }
             catch (Exception ex)
