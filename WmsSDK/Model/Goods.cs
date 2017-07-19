@@ -31,12 +31,12 @@ namespace WmsSDK.Model
            public String goodsModel { get; set; }
         /** 等级 */
            [JsonProperty("goodsGrade")]
-           public decimal goodsGrade { get; set; }
+           public string goodsGrade { get; set; }
         /** 品牌 */
            [JsonProperty("goodsBrand")]
-           public int goodsBrand { get; set; }
+           public string goodsBrand { get; set; }
         /** 产地 */
-           [JsonProperty("packTaskDetailId")]
+           [JsonProperty("madeIn")]
            public String madeIn { get; set; }
         /** 重量 */
            [JsonProperty("weight")]

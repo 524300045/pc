@@ -34,6 +34,7 @@ namespace WmsSDK.Request
           public int PageSize { get; set; }
 
 
+          [JsonProperty("isPreprocess")]
           public int isPreprocess { get; set; }
 
 
