@@ -52,6 +52,10 @@ namespace WmsApp
                     //这里可以编写你需要的任意关于按钮事件的操作~
                     if (column.Name == "Column13")
                     {
+                        if (MessageBox.Show("确定要作废当前所选包裹吗?","提示",MessageBoxButtons.OKCancel)==DialogResult.Cancel)
+                        {
+                            return;
+                        }
                         long id = long.Parse(this.dataGridView1.CurrentRow.Cells["id"].Value.ToString());
                         //作废
                         PackageDelRequest delRequest = new PackageDelRequest();
@@ -64,7 +68,7 @@ namespace WmsApp
                         }
                         else
                         {
-                            MessageBox.Show("作废失败");
+                            MessageBox.Show("作废失败"+response.result);
                         }
                     }
                     if (column.Name == "Column12")
