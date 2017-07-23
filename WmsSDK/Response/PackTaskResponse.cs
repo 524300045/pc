@@ -13,4 +13,13 @@ namespace WmsSDK.Response
 
         public PageUtil pageUtil { get; set; }
     }
+
+
+    public class PackageTaskDetailResponse : WMSResponse
+    {
+
+        public List<PackagePackTask> result { get; set; }
+
+        public PageUtil pageUtil { get; set; }
+    }
 }

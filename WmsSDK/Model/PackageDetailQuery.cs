@@ -67,29 +67,44 @@ namespace WmsSDK.Response
         [JsonProperty("deliveryDate")]
         public DateTime deliveryDate { get; set; }
 
-        public string statusDes { 
+        [JsonProperty("weight")]
+        public decimal weight { get; set; }
+        /// <summary>
+        /// 箱号
+        /// </summary>
+        [JsonProperty("boxCode")]
+        public string boxCode { get; set; }
+
+        
+
+        public string statusDes
+        {
             get
             {
                 if (status == 0)
                 {
                     return "新建";
                 }
+                if (status == 5)
+                {
+                    return "已包装";
+                }
 
                 if (status == 10)
                 {
-                    return "包装中";
+                    return "已分拣";
                 }
                 if (status == 20)
                 {
                     return "已发运";
                 }
-                if (status ==90)
+                if (status == 90)
                 {
                     return "作废";
                 }
                 return "";
             }
-  
+
         }
     }
 }

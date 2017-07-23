@@ -20,4 +20,18 @@ namespace WmsSDK.Request
              [JsonProperty("warehouseId")]
         public string wareHouseId { get; set; }
     }
+
+    public class PreprocessInfoQueryRequest : IWMSRequest<PreprocessInfoResponse>
+    {
+        public string GetAPIPath()
+        {
+            return "/preprocessInfo/getList";
+        }
+
+
+          [JsonProperty("preprocessCode")]
+        public string preprocessCode { get; set; }
+   
+    }
+
 }

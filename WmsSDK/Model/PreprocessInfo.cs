@@ -43,5 +43,18 @@ namespace WmsSDK.Model
         public String updateUser { get; set; }
         /** 是否有效 */
         public int yn { get; set; }
+
+     
+
+        public string StatusDes {
+            get
+            {
+                if (status==0)
+                {
+                    return "未使用";
+                }
+                return "已使用";
+            }
+        }
     }
 }

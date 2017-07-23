@@ -55,6 +55,7 @@
             this.groupBox1.Controls.Add(this.btnBox);
             this.groupBox1.Controls.Add(this.btnQuery);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1239, 55);
@@ -68,12 +69,12 @@
             this.cbStore.FormattingEnabled = true;
             this.cbStore.Location = new System.Drawing.Point(85, 17);
             this.cbStore.Name = "cbStore";
-            this.cbStore.Size = new System.Drawing.Size(121, 20);
+            this.cbStore.Size = new System.Drawing.Size(121, 24);
             this.cbStore.TabIndex = 2;
             // 
             // btnBox
             // 
-            this.btnBox.Location = new System.Drawing.Point(428, 14);
+            this.btnBox.Location = new System.Drawing.Point(429, 18);
             this.btnBox.Name = "btnBox";
             this.btnBox.Size = new System.Drawing.Size(75, 23);
             this.btnBox.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(271, 14);
+            this.btnQuery.Location = new System.Drawing.Point(271, 18);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -96,7 +97,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
+            this.label2.Size = new System.Drawing.Size(48, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "门店:";
             // 
@@ -107,6 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.pageSplit1);
             this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 67);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1239, 388);
@@ -131,6 +133,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.boxCode,
@@ -139,11 +144,10 @@
             this.yn,
             this.printTime,
             this.printMan});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1233, 368);
+            this.dataGridView1.Size = new System.Drawing.Size(1233, 335);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 

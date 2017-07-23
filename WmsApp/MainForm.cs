@@ -54,6 +54,7 @@ namespace WmsApp
         {
             if (dockPanel1.ActiveDocument != null)
             {
+               
                 dockPanel1.ActiveDocument.DockHandler.Close();
             }
         }
@@ -68,17 +69,53 @@ namespace WmsApp
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            AddToFrame(new PackageTaskForm());
+
+            DockContent fx = FindCurrentForm("PackageTaskForm");
+            if (fx == null)
+            {
+                AddToFrame(new PackageTaskForm());
+            }
+            else
+            {
+                fx.Activate();
+            }
+    
+        }
+
+        private DockContent FindCurrentForm(string name)
+        {
+            if (dockPanel1.DocumentsCount > 0)
+            {
+                foreach (IDockContent fx in dockPanel1.Documents)
+                {
+                    DockContent f = (DockContent)fx;
+                    if (f.Name == name)
+                    {
+                        return f;
+                    }
+                }
+            }
+
+            return null;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            AddToFrame(new PackageDetailForm());
+            DockContent fx = FindCurrentForm("PackageDetailForm");
+             if (fx == null)
+             {
+                 AddToFrame(new PackageDetailForm());
+             }
+             else
+             {
+                 fx.Activate();
+             }
+            
         }
 
         private void tsbExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确定要退出系统吗?")==DialogResult.OK)
+            if (MessageBox.Show("确定要退出系统吗?","提示",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 Application.Exit();
             }
@@ -88,19 +125,58 @@ namespace WmsApp
         private void tsbPrePack_Click(object sender, EventArgs e)
         {
 
-            AddToFrame(new PrePackageForm());
+            DockContent fx = FindCurrentForm("PrePackageForm");
+            if (fx == null)
+            {
+                AddToFrame(new PrePackageForm());
+            }
+            else
+            {
+                fx.Activate();
+            }
+           
         }
 
         private void tsbBox_Click(object sender, EventArgs e)
         {
-
-            AddToFrame(new BoxPrintForm());
+            DockContent fx = FindCurrentForm("BoxPrintForm");
+                if (fx == null)
+                {
+                    AddToFrame(new BoxPrintForm());
+                }
+                else
+                {
+                    fx.Activate();
+                }
+          
         }
 
         private void tsbTaskQuery_Click(object sender, EventArgs e)
         {
+            DockContent fx = FindCurrentForm("PackageTaskQueryForm");
+            if (fx == null)
+            {
+                AddToFrame(new PackageTaskQueryForm());
+            }
+            else
+            {
+                fx.Activate();
+            }
+           
+        }
 
-            AddToFrame(new PackageTaskQueryForm());
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            DockContent fx = FindCurrentForm("PreprocessForm");
+            if (fx == null)
+            {
+                AddToFrame(new PreprocessForm());
+            }
+            else
+            {
+                fx.Activate();
+            }
+           
         }
     }
 }

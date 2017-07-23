@@ -112,7 +112,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(45, 216);
+            this.label7.Location = new System.Drawing.Point(45, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 20);
             this.label7.TabIndex = 0;
@@ -131,10 +131,11 @@
             // 
             // tbWeight
             // 
-            this.tbWeight.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbWeight.Font = new System.Drawing.Font("宋体", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbWeight.ForeColor = System.Drawing.Color.Red;
             this.tbWeight.Location = new System.Drawing.Point(127, 214);
             this.tbWeight.Name = "tbWeight";
-            this.tbWeight.Size = new System.Drawing.Size(156, 38);
+            this.tbWeight.Size = new System.Drawing.Size(221, 53);
             this.tbWeight.TabIndex = 0;
             this.tbWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWeight_KeyDown);
             // 

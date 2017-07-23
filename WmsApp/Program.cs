@@ -35,7 +35,7 @@ namespace WmsApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DefalutWMSClient.DefaultServiceAddress = " http://127.0.0.1:8089/webservice/services";
+            DefalutWMSClient.DefaultServiceAddress = " http://10.5.2.107:8089/webservice/services";
            // Application.Run(new Form1());
             LoginForm loginForm = new LoginForm();
             loginForm.StartPosition = FormStartPosition.CenterParent;

@@ -32,7 +32,7 @@ namespace WmsSDK.Request
         public String storedCode { get; set; }
 
            [JsonProperty("status")]
-        public int status { get; set; }
+        public int? status { get; set; }
 
            [JsonProperty("startTime")]
         public string startTime { get; set; }

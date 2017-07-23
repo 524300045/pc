@@ -9,6 +9,7 @@ namespace WmsApp
     {
        public static string UserName;
 
+       public static string RealName;
 
        public static string PartnerCode;
 
@@ -17,5 +18,7 @@ namespace WmsApp
        public static String WareHouseCode;
 
        public static string WareHouseName;
+
+       public static string CompanyName;
     }
 }

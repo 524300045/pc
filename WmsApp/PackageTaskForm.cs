@@ -36,7 +36,7 @@ namespace WmsApp
             {
 
                 dtBegin.Value = DateTime.Today.AddDays(1).AddDays(-1);
-                dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
+             //   dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
 
                 this.dataGridView1.AutoGenerateColumns = false;
                 paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
@@ -58,7 +58,7 @@ namespace WmsApp
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
             request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.endTime = dtBegin.Value.ToString("yyyy-MM-dd 23:59:59");
             request.partnerCode = UserInfo.PartnerCode;
             request.skuCode = tbName.Text.Trim();
             request.packTaskType = 10;

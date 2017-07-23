@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -12,6 +14,9 @@ using WmsSDK;
 using WmsSDK.Model;
 using WmsSDK.Request;
 using WmsSDK.Response;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
 
 namespace WmsApp
 {
@@ -22,6 +27,9 @@ namespace WmsApp
 
         private SortableBindingList<PackageDetailQuery> sortList = null;
 
+        private PackageDetailQuery curPackageDetailQuery;
+
+        private List<PackageDetailQuery> packageDetailQueryList;
 
         private IWMSClient client = null;
 
@@ -35,11 +43,11 @@ namespace WmsApp
         {
             cbStore.SelectedIndex = 0;
             cbStatus.SelectedIndex = 0;
-            this.dtBegin.Value = DateTime.Now.AddDays(-10);
-            this.dtEnd.Value = DateTime.Now.AddDays(10);
+            this.dtBegin.Value = DateTime.Now.AddDays(1).AddDays(-1);
             this.dataGridView1.AutoGenerateColumns = false;
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
-
+            bindStore();
+            BindDgv();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +60,7 @@ namespace WmsApp
                     //这里可以编写你需要的任意关于按钮事件的操作~
                     if (column.Name == "Column13")
                     {
-                        if (MessageBox.Show("确定要作废当前所选包裹吗?","提示",MessageBoxButtons.OKCancel)==DialogResult.Cancel)
+                        if (MessageBox.Show("确定要作废当前所选包裹吗?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                         {
                             return;
                         }
@@ -60,7 +68,7 @@ namespace WmsApp
                         //作废
                         PackageDelRequest delRequest = new PackageDelRequest();
                         delRequest.id = id;
-                        delRequest.updateUser = UserInfo.UserName;
+                        delRequest.updateUser = UserInfo.RealName;
                         PackageDelResponse response = client.Execute(delRequest);
                         if (!response.IsError)
                         {
@@ -68,16 +76,136 @@ namespace WmsApp
                         }
                         else
                         {
-                            MessageBox.Show("作废失败"+response.result);
+                            MessageBox.Show("作废失败" + response.result);
                         }
                     }
                     if (column.Name == "Column12")
                     {
-                        //重打印
+                        if (packageDetailQueryList != null)
+                        {
+                            string packageCode = this.dataGridView1.CurrentRow.Cells["packageCode"].Value.ToString();
+                            //重打印
+                            curPackageDetailQuery = packageDetailQueryList.Where(p => p.packageCode == packageCode).FirstOrDefault();
+
+                            PrintDocument document = new PrintDocument();
+                            document.DefaultPageSettings.PaperSize = new PaperSize("Custum", 270, 180);
+
+#if(!DEBUG)
+                        PrintDialog dialog = new PrintDialog();
+                        document.PrintPage += new PrintPageEventHandler(this.pd_PrintPage);
+                        dialog.Document = document;
+#else
+
+                            PrintPreviewDialog dialog = new PrintPreviewDialog();
+                            document.PrintPage += new PrintPageEventHandler(this.pd_PrintPage);
+                            dialog.Document = document;
+
+#endif
+                            try
+                            {
+                                document.Print();
+                            }
+                            catch (Exception exception)
+                            {
+                                MessageBox.Show("打印异常" + exception);
+                                document.PrintController.OnEndPrint(document, new PrintEventArgs());
+                            }
+
+                        }
 
                     }
                 }
             }
+        }
+
+
+
+        public void GetPrintPicture(Bitmap image, PrintPageEventArgs g)
+        {
+
+
+            Font fontCu = new Font("宋体", 12f, FontStyle.Bold);
+            int height = 15;
+            int heightRight = 15;
+
+            Font font = new Font("宋体", 10f);
+            Brush brush = new SolidBrush(Color.Black);
+            g.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            int interval = 5;
+            int pointX = 35;
+
+            RectangleF layoutRectangleRight = new RectangleF(135f, 5, 130f, 85f);
+            //g.Graphics.DrawString(preprocessInfo.preprocessCode, font, brush, layoutRectangleRight);
+
+            Rectangle destRect = new Rectangle(200, -15, image.Width, image.Height);
+            g.Graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
+            heightRight = image.Width - 20;
+
+            layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
+            g.Graphics.DrawString(UserInfo.WareHouseName, font, brush, layoutRectangleRight);
+
+            heightRight += 20;
+
+            layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
+            g.Graphics.DrawString(UserInfo.RealName, font, brush, layoutRectangleRight);
+
+
+            heightRight += 15;
+            layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
+            g.Graphics.DrawString(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), font, brush, layoutRectangleRight);
+
+
+            //门店名称
+
+
+            RectangleF layoutRectangle = new RectangleF(pointX, 5, 180f, 30f);
+            g.Graphics.DrawString(curPackageDetailQuery.storedName, fontCu, brush, layoutRectangle);
+
+
+            height += 10;
+            //商品名称
+            layoutRectangle = new RectangleF(pointX, height, 180f, 30f);
+            g.Graphics.DrawString(curPackageDetailQuery.goodsName, font, brush, layoutRectangle);
+
+            height += interval + 20;
+            //重量
+
+            layoutRectangle = new RectangleF(pointX, height, 120f, 40f);
+            g.Graphics.DrawString(curPackageDetailQuery.weight.ToString("f2") + "斤", fontCu, brush, layoutRectangle);
+
+            height += interval + 13;
+
+            Rectangle dest2Rect = new Rectangle(pointX, 80, image.Width, image.Height);
+            g.Graphics.DrawImage(image, dest2Rect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
+
+            height = 80 + image.Height - 15;
+
+            layoutRectangle = new RectangleF(pointX, height, 120f, 30f);
+            g.Graphics.DrawString(curPackageDetailQuery.packageCode, font, brush, layoutRectangle);
+
+        }
+
+
+        
+        private void pd_PrintPage(object sender, PrintPageEventArgs e) //触发打印事件
+        {
+            Bitmap bt = CreateQRCode(curPackageDetailQuery.packageCode);
+            GetPrintPicture(bt, e);
+        }
+
+        public static Bitmap CreateQRCode(string asset)
+        {
+            EncodingOptions options = new QrCodeEncodingOptions
+            {
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = 80,
+                Height = 80
+            };
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            writer.Options = options;
+            return writer.Write(asset);
         }
 
 
@@ -137,13 +265,38 @@ namespace WmsApp
             {
                 request.storedCode = cbStore.SelectedValue.ToString();
             }
-
             request.packageCode = tbPackageCode.Text.Trim();
-            request.startTime = dtBegin.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            request.endTime = dtEnd.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            request.startTime = dtBegin.Value.ToString("yyyy-MM-dd 00:00:00");
+            request.endTime = dtBegin.Value.ToString("yyyy-MM-dd 23:59:59");
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
 
+            if (cbStatus.SelectedIndex==0)
+            {
+                request.status = null;
+            }
+            if (cbStatus.SelectedIndex==1)
+            {
+                request.status = 0;
+            }
+
+            if (cbStatus.SelectedIndex==2)
+            {
+                request.status = 5;
+            }
+
+            if (cbStatus.SelectedIndex==3)
+            {
+                request.status = 10;
+            }
+            if (cbStatus.SelectedIndex==4)
+            {
+                request.status = 20;
+            }
+            if (cbStatus.SelectedIndex==5)
+            {
+                request.status = 90;
+            }
 
             PackageDetailQueryResponse response = client.Execute(request);
             if (!response.IsError)
@@ -151,7 +304,6 @@ namespace WmsApp
                 if (response.result == null)
                 {
                     this.dataGridView1.DataSource = null;
-
                     return;
                 }
                 int recordCount = response.pageUtil.totalRow;
@@ -164,6 +316,8 @@ namespace WmsApp
                 {
                     totalPage = recordCount / paginator.PageSize + 1;
                 }
+                packageDetailQueryList = response.result;
+
                 IPagedList<PackageDetailQuery> pageList = new PagedList<PackageDetailQuery>(response.result, recordCount, totalPage);
                 sortList = new SortableBindingList<PackageDetailQuery>(pageList.ContentList);
                 this.dataGridView1.DataSource = sortList;
@@ -174,9 +328,93 @@ namespace WmsApp
             }
             else
             {
-
+                packageDetailQueryList = null;
+                this.dataGridView1.DataSource = null;
             }
 
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnImport.Enabled = false;
+
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "包裹明细(*.xls)|*.xls";
+                sfd.Title = "导出包裹信息";
+                sfd.FilterIndex = 2;
+                sfd.RestoreDirectory = true;
+
+                sfd.FileName = "包裹明细"+DateTime.Now.ToString("yyyyMMddHHmmss")+".xls";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (packageDetailQueryList==null)
+                    {
+                        return;
+                    }
+                    DataTable dtExecl = new DataTable();
+                    DataColumn dc1 = new DataColumn("      包装编码       ");
+                    dtExecl.Columns.Add(dc1);
+
+                    DataColumn dc2 = new DataColumn("      箱号     ");
+                    dtExecl.Columns.Add(dc2);
+
+                    DataColumn dc4 = new DataColumn("      商品编码       ");
+                    dtExecl.Columns.Add(dc4);
+
+                    DataColumn dc5 = new DataColumn("      商品名称       ");
+                    dtExecl.Columns.Add(dc5);
+
+                    DataColumn dc3 = new DataColumn("重量");
+                    dtExecl.Columns.Add(dc3);
+
+                    DataColumn dc6 = new DataColumn("规格");
+                    dtExecl.Columns.Add(dc6);
+
+                    DataColumn dc7 = new DataColumn("包装人员");
+                    dtExecl.Columns.Add(dc7);
+
+
+                    DataColumn dc8 = new DataColumn("包装时间");
+                    dtExecl.Columns.Add(dc8);
+
+
+                    DataColumn dc9 = new DataColumn("商户名称");
+                    dtExecl.Columns.Add(dc9);
+
+                    DataColumn dc10 = new DataColumn("订单号");
+                    dtExecl.Columns.Add(dc10);
+
+                    foreach (PackageDetailQuery item in packageDetailQueryList)
+                    {
+                        DataRow dr = dtExecl.NewRow();
+                        dr[0] = item.packageCode;
+                        dr[1] = item.boxCode;
+                        dr[2] = item.skuCode;
+                        dr[3] = item.goodsName;
+                        dr[4] = item.weight;
+                        dr[5] = item.modelNum + "" + item.goodsUnit + "/" + item.physicsUnit;
+                        dr[6] = item.createUser;
+                        dr[7] = item.createTime;
+                        dr[8] = item.storedName;
+                        dr[9] = item.outboundTaskCode;
+                        dtExecl.Rows.Add(dr);
+                    }
+
+                    NPOIHelper.ExportDTtoExcel(dtExecl, sfd.Title, "", sfd.FileName);
+
+                    MessageBox.Show("导出成功");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导出异常" + ex.Message);
+            }
+            finally
+            {
+                btnImport.Enabled = true;
+            }
         }
     }
 }
