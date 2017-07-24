@@ -80,6 +80,7 @@ namespace WmsApp
         {
             PreprocessInfoQueryRequest request = new PreprocessInfoQueryRequest();
             request.preprocessCode = tbPackageCode.Text.Trim();
+            request.partnerCode = UserInfo.PartnerCode;
 
             PreprocessInfoResponse response = client.Execute(request);
             if (!response.IsError)

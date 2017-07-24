@@ -79,7 +79,7 @@ namespace WmsApp
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            login();
+            //login();
             if (string.IsNullOrWhiteSpace(tbUserName.Text.Trim()))
             {
                 MessageBox.Show("用户名不能为空!");

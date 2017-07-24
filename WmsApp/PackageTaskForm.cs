@@ -35,7 +35,7 @@ namespace WmsApp
             try
             {
 
-                dtBegin.Value = DateTime.Today.AddDays(1).AddDays(-1);
+                dtBegin.Value = DateTime.Today.AddDays(2).AddDays(-1);
              //   dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
 
                 this.dataGridView1.AutoGenerateColumns = false;

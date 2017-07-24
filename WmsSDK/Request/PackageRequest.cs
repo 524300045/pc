@@ -45,5 +45,14 @@ namespace WmsSDK.Request
 
          [JsonProperty("updateUser")]
         public string updateUser { get; set; }
+
+           [JsonProperty("partnerCode")]
+         public String partnerCode { get; set; }
+
+           [JsonProperty("partnerName")]
+           public String partnerName { get; set; }
+
+
+
     }
 }

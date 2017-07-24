@@ -35,7 +35,12 @@ namespace WmsApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DefalutWMSClient.DefaultServiceAddress = " http://10.5.2.107:8089/webservice/services";
+         //   DefalutWMSClient.DefaultServiceAddress = " http://172.31.25.228:8089/webservice/services";
+
+  
+            DefalutWMSClient.DefaultServiceAddress = " http://api.cooperate.bjkalf.net:8080/services";
+
+
            // Application.Run(new Form1());
             LoginForm loginForm = new LoginForm();
             loginForm.StartPosition = FormStartPosition.CenterParent;

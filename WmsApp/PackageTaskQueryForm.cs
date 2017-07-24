@@ -41,7 +41,7 @@ namespace WmsApp
 
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
-            dtBegin.Value = DateTime.Today.AddDays(1).AddDays(-1);
+            dtBegin.Value = DateTime.Today.AddDays(2).AddDays(-1);
           
             this.dataGridView1.AutoGenerateColumns = false;
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
@@ -56,7 +56,7 @@ namespace WmsApp
             request.PageSize = paginator.PageSize;
             request.startTime = dtBegin.Value.ToString("yyyy-MM-dd 00:00:00");
             request.endTime = dtBegin.Value.ToString("yyyy-MM-dd 23:59:59");
-           
+            request.partnerCode = UserInfo.PartnerCode;
             if (tbName.Text.Trim()!="")
             {
                 request.skuCode = "%"+tbName.Text.Trim();

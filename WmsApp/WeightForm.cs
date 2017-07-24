@@ -110,8 +110,8 @@ namespace WmsApp
                     lbOrderWeight.Text = orderCount.ToString("f0");//订单总量
 
 
-                    decimal downWeight = response.result.modelNum - response.result.downPlanNum * response.result.modelNum;
-                    decimal upWeight = response.result.modelNum + response.result.upPlanNum * response.result.modelNum;
+                     downWeight = response.result.modelNum - (response.result.downPlanNum * response.result.modelNum)/100;
+                     upWeight = response.result.modelNum + (response.result.upPlanNum * response.result.modelNum)/100;
 
 
                     lbUpDown.Text = downWeight.ToString("f2") + response.result.goodsUnit + "--" + upWeight.ToString("f2") + response.result.goodsUnit;//上下限
@@ -199,6 +199,11 @@ namespace WmsApp
                     request.skuCode = curSkuCode;
                     request.createUser = UserInfo.RealName;
                     request.updateUser = UserInfo.RealName;
+                    request.partnerCode = UserInfo.PartnerCode;
+                    request.partnerName = UserInfo.PartnerName;
+
+
+
                     PackageResponse response = client.Execute(request);
                     if (!response.IsError)
                     {

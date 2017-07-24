@@ -113,9 +113,9 @@ namespace WmsSDK.Model
                 {
                     return "已发运";
                 }
-                if (status == 90)
+                if (status == 15)
                 {
-                    return "作废";
+                    return "已完成";
                 }
                 return "";
             }

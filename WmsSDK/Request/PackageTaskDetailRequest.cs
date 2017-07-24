@@ -40,6 +40,10 @@ namespace WmsSDK.Request
         [JsonProperty("packTaskCode")]
         public string packTaskCode { get; set; }
 
+
+            [JsonProperty("partnerCode")]
+        public String partnerCode { get; set; }
+
     
     }
 }

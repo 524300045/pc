@@ -43,7 +43,7 @@ namespace WmsApp
         {
             cbStore.SelectedIndex = 0;
             cbStatus.SelectedIndex = 0;
-            this.dtBegin.Value = DateTime.Now.AddDays(1).AddDays(-1);
+            this.dtBegin.Value = DateTime.Now.AddDays(2).AddDays(-1);
             this.dataGridView1.AutoGenerateColumns = false;
             paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
             bindStore();
@@ -220,7 +220,7 @@ namespace WmsApp
                     List<StoreInfo> storeList = new List<StoreInfo>();
 
                     storeList = response.result;
-
+                    storeList.Insert(0, new StoreInfo() { storedCode = null, storedName = "全部" });
                     this.cbStore.DataSource = storeList;
                     this.cbStore.DisplayMember = "storedName";
                     this.cbStore.ValueMember = "storedCode";
@@ -270,6 +270,7 @@ namespace WmsApp
             request.endTime = dtBegin.Value.ToString("yyyy-MM-dd 23:59:59");
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
+            request.partnerCode = UserInfo.PartnerCode;
 
             if (cbStatus.SelectedIndex==0)
             {

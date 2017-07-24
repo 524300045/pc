@@ -48,5 +48,9 @@ namespace WmsSDK.Request
         /// </summary>
         [JsonProperty("pageSize")]
         public int PageSize { get; set; }
+
+
+          [JsonProperty("partnerCode")]
+        public string partnerCode { get; set; }
     }
 }

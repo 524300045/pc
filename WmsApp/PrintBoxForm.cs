@@ -63,6 +63,8 @@ namespace WmsApp
                     boxInfo.warehouseName = UserInfo.WareHouseName;
                     boxInfo.storedCode = cbStore.SelectedValue.ToString();
                     boxInfo.storedName = cbStore.Text;
+                    boxInfo.partnerCode = UserInfo.PartnerCode;
+                    boxInfo.partnerName = UserInfo.PartnerName;
                     boxInfo.printMan = UserInfo.RealName;
                     boxInfo.updateUser = UserInfo.RealName;
                     boxInfo.createUser = UserInfo.RealName;

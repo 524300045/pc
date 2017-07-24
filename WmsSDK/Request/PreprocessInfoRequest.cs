@@ -17,7 +17,7 @@ namespace WmsSDK.Request
 
         public List<PreprocessInfoAdd> request { get; set; }
 
-             [JsonProperty("warehouseId")]
+        [JsonProperty("warehouseId")]
         public string wareHouseId { get; set; }
     }
 
@@ -29,9 +29,12 @@ namespace WmsSDK.Request
         }
 
 
-          [JsonProperty("preprocessCode")]
+        [JsonProperty("preprocessCode")]
         public string preprocessCode { get; set; }
-   
+
+        [JsonProperty("partnerCode")]
+        public String partnerCode { get; set; }
+
     }
 
 }

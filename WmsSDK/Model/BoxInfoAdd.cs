@@ -50,6 +50,14 @@ namespace WmsSDK.Model
         /** 更新人 */
         [JsonProperty("updateUser")]
         public String updateUser { get; set; }
+
+            [JsonProperty("partnerCode")]
+        public string partnerCode { get; set; }
+
+            [JsonProperty("partnerName")]
+            public String partnerName { get; set; }
+
+
         /** 是否有效 */
         [JsonProperty("yn")]
         public int yn { get; set; }

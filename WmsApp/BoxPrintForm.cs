@@ -66,7 +66,7 @@ namespace WmsApp
             BoxInfoRequest request = new BoxInfoRequest();
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
-
+            request.partnerCode = UserInfo.PartnerCode;
 
             BoxInfoResponse response = client.Execute(request);
            if (!response.IsError)
