@@ -244,6 +244,7 @@ namespace WmsApp
                 finally
                 {
                     tbWeight.Enabled = true;
+                    tbWeight.Focus();
                 }
 
             }

@@ -67,7 +67,7 @@
             // 
             this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStore.FormattingEnabled = true;
-            this.cbStore.Location = new System.Drawing.Point(85, 17);
+            this.cbStore.Location = new System.Drawing.Point(98, 16);
             this.cbStore.Name = "cbStore";
             this.cbStore.Size = new System.Drawing.Size(121, 24);
             this.cbStore.TabIndex = 2;

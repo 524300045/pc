@@ -67,7 +67,11 @@ namespace WmsApp
             request.PageIndex = paginator.PageNo;
             request.PageSize = paginator.PageSize;
             request.partnerCode = UserInfo.PartnerCode;
-
+            if (cbStore.SelectedIndex!=0)
+            {
+                request.storedCode = cbStore.SelectedValue.ToString();
+            }
+         
             BoxInfoResponse response = client.Execute(request);
            if (!response.IsError)
            {

@@ -63,8 +63,8 @@ namespace WmsApp
             }
             lbSkuInfo.Text = goods.skuCode + "  " + goods.goodsName + "  " + goods.modelNum + goods.goodsUnit + "/" + goods.physicsUnit;
 
-            decimal downWeight = goods.modelNum - goods.downLimit * goods.modelNum;
-            decimal upWeight = goods.modelNum + goods.upLimit * goods.modelNum;
+            decimal downWeight = goods.modelNum - (goods.downLimit * goods.modelNum)/100;
+            decimal upWeight = goods.modelNum + (goods.upLimit * goods.modelNum)/100;
 
             lbUpDown.Text = downWeight.ToString("f2") + goods.goodsUnit + "--" + upWeight.ToString("f2") + goods.goodsUnit;
             lbModelNum.Text = goods.modelNum + goods.goodsUnit + "/" + goods.physicsUnit;
@@ -116,8 +116,8 @@ namespace WmsApp
 
                         curWeight = Util.ConvertGToJin(weight);
 
-                        decimal downWeight =goods.modelNum-goods.downLimit * goods.modelNum;
-                        decimal upWeight = goods.modelNum+goods.upLimit * goods.modelNum;
+                        decimal downWeight =goods.modelNum-(goods.downLimit * goods.modelNum)/100;
+                        decimal upWeight = goods.modelNum+(goods.upLimit * goods.modelNum)/100;
                         if (curWeight<downWeight)
                         {
                             MessageBox.Show("商品重量小于下限");
@@ -239,7 +239,9 @@ namespace WmsApp
                         }
                         GetCount();
                     }
+
                     tbWeight.Text = "";
+                  
                 }
                 catch (Exception ex)
                 {
@@ -248,7 +250,7 @@ namespace WmsApp
                 finally
                 {
                     tbWeight.Enabled = true;
-
+                    tbWeight.Focus();
                 }
 
             }

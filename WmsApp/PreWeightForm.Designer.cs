@@ -203,7 +203,7 @@
             this.MaximizeBox = false;
             this.Name = "PreWeightForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "称重打包";
+            this.Text = "预加工称重打包";
             this.Load += new System.EventHandler(this.WeightForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeightForm_KeyDown);
             this.ResumeLayout(false);
