@@ -66,11 +66,7 @@ namespace WmsApp
         }
 
 
-        private void login()
-        {
-           
-            //Console.WriteLine(response.Code);
-        }
+   
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -107,6 +103,13 @@ namespace WmsApp
                     return;
                 }
 
+                if (response.result==null)
+                {
+                     MessageBox.Show("获取不到用户信息!");
+                    tbPwd.SelectAll();
+                    tbPwd.Focus();
+                    return;
+                }
                 UserInfo.UserName= tbUserName.Text.Trim();
                 UserInfo.PartnerName = response.result.companyName;
                 UserInfo.PartnerCode = response.result.companyCode;
@@ -114,16 +117,17 @@ namespace WmsApp
                 UserInfo.WareHouseName = "北京康安利丰平谷1仓";
                 UserInfo.RealName = response.result.cnName;
                 UserInfo.CompanyName = response.result.companyName;
-                
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
                 LogHelper.Log("Login:"+ex.Message);
                 MessageBox.Show("出现异常"+ex.Message);
+                return;
             }
            
 
-            this.DialogResult = DialogResult.OK;
+          
         }
     }
 }
