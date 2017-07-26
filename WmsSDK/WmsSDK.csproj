@@ -79,6 +79,7 @@
     <Compile Include="Model\PreprocessInfo.cs" />
     <Compile Include="Model\PreprocessInfoAdd.cs" />
     <Compile Include="Model\StoreInfo.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="PageUtil.cs" />
     <Compile Include="PaginatorDTO.cs" />

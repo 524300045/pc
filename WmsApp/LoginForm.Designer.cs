@@ -70,7 +70,6 @@
             this.tbPwd.PasswordChar = '*';
             this.tbPwd.Size = new System.Drawing.Size(167, 21);
             this.tbPwd.TabIndex = 2;
-            this.tbPwd.Text = "001";
             this.tbPwd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnOk

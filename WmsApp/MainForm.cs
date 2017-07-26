@@ -186,6 +186,7 @@ namespace WmsApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.Text = this.Text + "--" + UserInfo.PartnerName + "(" + UserInfo.PartnerCode + ")";
+            lbUserName.Text =UserInfo.RealName+"("+ UserInfo.UserName+")";
         }
 
     

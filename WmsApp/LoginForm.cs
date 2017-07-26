@@ -12,6 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using WmsSDK;
 using WmsSDK.Request;
+using WmsSDK.Response;
 
 namespace WmsApp
 {
@@ -67,19 +68,13 @@ namespace WmsApp
 
         private void login()
         {
-            LoginRequest request = new LoginRequest();
-            request.name = "admin";
-            request.password = "admin";
-            string json = DefalutWMSClient.GetJson(request);
-
-            string result = PostMoths("http://www.bjkalf.net:8090/services/user/checkAndGetUserResource", json);
-
-            Console.WriteLine(result);
+           
+            //Console.WriteLine(response.Code);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //login();
+    
             if (string.IsNullOrWhiteSpace(tbUserName.Text.Trim()))
             {
                 MessageBox.Show("用户名不能为空!");
@@ -95,13 +90,30 @@ namespace WmsApp
             try
             {
 
+                LoginRequest request = new LoginRequest();
+                request.name = tbUserName.Text.Trim();
+                request.password = tbPwd.Text.Trim();
+                string json = DefalutWMSClient.GetJson(request);
+
+                string result = PostMoths("http://www.bjkalf.net:8090/services/user/checkAndGetUserResource", json);
+
+                LoginResponse response = DefalutWMSClient.ToObject<LoginResponse>(result);
+
+                if (response.Code!="200")
+                {
+                    MessageBox.Show("用户名或密码错误!");
+                    tbPwd.SelectAll();
+                    tbPwd.Focus();
+                    return;
+                }
+
                 UserInfo.UserName= tbUserName.Text.Trim();
-                UserInfo.PartnerName = tbUserName.Text.Trim();
-                UserInfo.PartnerCode = tbUserName.Text.Trim();
+                UserInfo.PartnerName = response.result.companyName;
+                UserInfo.PartnerCode = response.result.companyCode;
                 UserInfo.WareHouseCode = "10";
                 UserInfo.WareHouseName = "北京康安利丰平谷1仓";
-                UserInfo.RealName = tbUserName.Text.Trim();
-                UserInfo.CompanyName = tbUserName.Text.Trim();
+                UserInfo.RealName = response.result.cnName;
+                UserInfo.CompanyName = response.result.companyName;
                 
             }
             catch (Exception ex)

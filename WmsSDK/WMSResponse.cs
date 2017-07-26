@@ -18,7 +18,7 @@ namespace WmsSDK
         /// <summary>
         /// 错误信息
         /// </summary>
-        [JsonProperty("msg")]
+        [JsonProperty("message")]
         public string Message { get; set; }
 
         /// <summary>
