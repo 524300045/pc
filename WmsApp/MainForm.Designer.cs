@@ -70,6 +70,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
+            this.toolStripButton1.Tag = "RE00055";
             this.toolStripButton1.Text = "订单包装";
             this.toolStripButton1.ToolTipText = "订单包装";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -81,6 +82,7 @@
             this.tsbPrePack.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrePack.Name = "tsbPrePack";
             this.tsbPrePack.Size = new System.Drawing.Size(76, 22);
+            this.tsbPrePack.Tag = "RE00056";
             this.tsbPrePack.Text = "商品包装";
             this.tsbPrePack.ToolTipText = "商品包装";
             this.tsbPrePack.Click += new System.EventHandler(this.tsbPrePack_Click);
@@ -92,6 +94,7 @@
             this.tsbBox.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBox.Name = "tsbBox";
             this.tsbBox.Size = new System.Drawing.Size(108, 22);
+            this.tsbBox.Tag = "RE00057";
             this.tsbBox.Text = "箱码标签打印";
             this.tsbBox.Click += new System.EventHandler(this.tsbBox_Click);
             // 
@@ -102,6 +105,7 @@
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(108, 22);
+            this.toolStripButton2.Tag = "RE00058";
             this.toolStripButton2.Text = "包裹明细查询";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -112,6 +116,7 @@
             this.tsbTaskQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbTaskQuery.Name = "tsbTaskQuery";
             this.tsbTaskQuery.Size = new System.Drawing.Size(124, 22);
+            this.tsbTaskQuery.Tag = "RE00059";
             this.tsbTaskQuery.Text = "任务单查询跟踪";
             this.tsbTaskQuery.Click += new System.EventHandler(this.tsbTaskQuery_Click);
             // 
@@ -122,6 +127,7 @@
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(108, 22);
+            this.toolStripButton4.Tag = "RE00060";
             this.toolStripButton4.Text = "商品包装查询";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 

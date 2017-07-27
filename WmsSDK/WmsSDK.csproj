@@ -73,12 +73,14 @@
     <Compile Include="Model\BoxInfoAdd.cs" />
     <Compile Include="Model\BoxInfo.cs" />
     <Compile Include="Model\Goods.cs" />
+    <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\PackagePackTask.cs" />
     <Compile Include="Model\PackTask.cs" />
     <Compile Include="Model\PackTaskDetail.cs" />
     <Compile Include="Model\PreprocessInfo.cs" />
     <Compile Include="Model\PreprocessInfoAdd.cs" />
     <Compile Include="Model\StoreInfo.cs" />
+    <Compile Include="Model\SubMenu.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="NetworkMonitor.cs" />
     <Compile Include="PageUtil.cs" />

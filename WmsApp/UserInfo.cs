@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WmsSDK.Model;
 
 namespace WmsApp
 {
@@ -20,5 +21,7 @@ namespace WmsApp
        public static string WareHouseName;
 
        public static string CompanyName;
+
+       public static List<Menu> menuDtos { get; set; }
     }
 }

@@ -117,6 +117,7 @@ namespace WmsApp
                 UserInfo.WareHouseName = "北京康安利丰平谷1仓";
                 UserInfo.RealName = response.result.cnName;
                 UserInfo.CompanyName = response.result.companyName;
+                UserInfo.menuDtos = response.result.menuDtos;
                 this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)

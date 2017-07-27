@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using WmsSDK.Model;
 
 namespace WmsApp
 {
@@ -187,6 +188,43 @@ namespace WmsApp
         {
             this.Text = this.Text + "--" + UserInfo.PartnerName + "(" + UserInfo.PartnerCode + ")";
             lbUserName.Text =UserInfo.RealName+"("+ UserInfo.UserName+")";
+
+            List<SubMenu> subMenu = null;
+            var result = UserInfo.menuDtos.Where(p => p.menuCode == "RE00052");
+            if(result!=null&&result.FirstOrDefault()!=null)
+            {
+                 subMenu = result.FirstOrDefault().subMenus ;
+            }
+
+            if (subMenu == null || subMenu.Count == 0)
+            {
+                foreach (ToolStripItem item in toolStrip1.Items)
+                {
+                    if (item.Tag!=null)
+                    {
+                        string tag = item.Tag.ToString();
+                        item.Enabled = false;
+                    }
+                  
+                }
+            }
+            else
+            {
+                foreach (ToolStripItem item in toolStrip1.Items)
+                {
+                    if (item.Tag!=null)
+                    {
+                        string tag = item.Tag.ToString();
+                        var curResult = subMenu.Where(p => p.subMenuCode == tag);
+                        if (curResult == null)
+                        {
+                            item.Enabled = false;
+                        }
+                    }
+                 
+                }
+            }
+           
         }
 
     
