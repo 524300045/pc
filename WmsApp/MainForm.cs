@@ -191,28 +191,28 @@ namespace WmsApp
 
             List<SubMenu> subMenu = null;
             var result = UserInfo.menuDtos.Where(p => p.menuCode == "RE00052");
-            if(result!=null&&result.FirstOrDefault()!=null)
+            if (result != null && result.FirstOrDefault() != null)
             {
-                 subMenu = result.FirstOrDefault().subMenus ;
+                subMenu = result.FirstOrDefault().subMenus;
             }
 
             if (subMenu == null || subMenu.Count == 0)
             {
                 foreach (ToolStripItem item in toolStrip1.Items)
                 {
-                    if (item.Tag!=null)
+                    if (item.Tag != null)
                     {
                         string tag = item.Tag.ToString();
                         item.Enabled = false;
                     }
-                  
+
                 }
             }
             else
             {
                 foreach (ToolStripItem item in toolStrip1.Items)
                 {
-                    if (item.Tag!=null)
+                    if (item.Tag != null)
                     {
                         string tag = item.Tag.ToString();
                         var curResult = subMenu.Where(p => p.subMenuCode == tag);
@@ -221,7 +221,7 @@ namespace WmsApp
                             item.Enabled = false;
                         }
                     }
-                 
+
                 }
             }
            
