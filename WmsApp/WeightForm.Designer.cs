@@ -132,11 +132,11 @@
             // 
             // tbWeight
             // 
-            this.tbWeight.Font = new System.Drawing.Font("宋体", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbWeight.Font = new System.Drawing.Font("宋体", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbWeight.ForeColor = System.Drawing.Color.Red;
             this.tbWeight.Location = new System.Drawing.Point(127, 214);
             this.tbWeight.Name = "tbWeight";
-            this.tbWeight.Size = new System.Drawing.Size(221, 53);
+            this.tbWeight.Size = new System.Drawing.Size(221, 61);
             this.tbWeight.TabIndex = 0;
             this.tbWeight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWeight_KeyDown);
             // 
