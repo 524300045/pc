@@ -227,6 +227,27 @@ namespace WmsApp
            
         }
 
+
+
+        /// <summary>
+        /// 供应商包装任务查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+
+            DockContent fx = FindCurrentForm("PartnerPackageTaskQueryForm");
+            if (fx == null)
+            {
+                AddToFrame(new PartnerPackageTaskQueryForm());
+            }
+            else
+            {
+                fx.Activate();
+            }
+        }
+
     
     }
 }

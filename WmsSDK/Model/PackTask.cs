@@ -110,6 +110,9 @@ namespace WmsSDK.Model
          [JsonProperty("packageNum")]
          public int packageNum { get; set; }
 
+          [JsonProperty("warehouseName")]
+         public String warehouseName { get; set; }
+
 
         public string statusdes
         {

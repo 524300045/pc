@@ -50,6 +50,12 @@ namespace WmsApp
                 MessageBox.Show("数量不能大于100");
                 return;
             }
+
+            if (cbStore.SelectedValue==null)
+            {
+                    MessageBox.Show("请选择门店");
+                return;
+            }
             try
             {
 
@@ -130,6 +136,7 @@ namespace WmsApp
         private void bindStore()
         {
             StoreInfoRequest request = new StoreInfoRequest();
+            request.partnerCode = UserInfo.PartnerCode;
             StoreInfoResponse response = client.Execute(request);
             if (!response.IsError)
             {

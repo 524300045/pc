@@ -57,6 +57,8 @@ namespace WmsApp
 
         private IWMSClient client = null;
 
+        public string wareHouseName;
+
         public WeightForm()
         {
             InitializeComponent();
@@ -102,7 +104,7 @@ namespace WmsApp
                 {
 
                     curPackTaskDetail = response.result;
-
+                  
                     lbSkuInfo.Text = response.result.skuCode + "  " + response.result.goodsName + "  " + response.result.modelNum + response.result.goodsUnit + "/" + response.result.physicsUnit;
 
                     lbProcess.Text = response.result.finishNum + "/" + orderNum + "  " + (response.result.finishNum / orderNum).ToString() + "%";
@@ -174,17 +176,17 @@ namespace WmsApp
 
                     curWeight = Util.ConvertGToJin(weight);
 
-                    if (curWeight<downWeight)
-                    {
-                        MessageBox.Show("重量不能小于浮动下限");
-                        return;
-                    }
+                    //if (curWeight<downWeight)
+                    //{
+                    //    MessageBox.Show("重量不能小于浮动下限");
+                    //    return;
+                    //}
 
-                    if (curWeight>upWeight)
-                    {
-                          MessageBox.Show("重量不能大于浮动上限");
-                        return;
-                    }
+                    //if (curWeight>upWeight)
+                    //{
+                    //      MessageBox.Show("重量不能大于浮动上限");
+                    //    return;
+                    //}
 
 
                     tbWeight.Enabled = false;
@@ -272,7 +274,7 @@ namespace WmsApp
             heightRight = image.Width - 20;
 
             layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
-            g.Graphics.DrawString(UserInfo.WareHouseName, font, brush, layoutRectangleRight);
+            g.Graphics.DrawString(wareHouseName, font, brush, layoutRectangleRight);
 
             heightRight += 20;
 
@@ -310,7 +312,7 @@ namespace WmsApp
 
             height = 80 + image.Height - 15;
 
-            layoutRectangle = new RectangleF(pointX, height, 120f, 30f);
+            layoutRectangle = new RectangleF(pointX, height, 150f, 30f);
             g.Graphics.DrawString(curPackageCode, font, brush, layoutRectangle);
 
         }

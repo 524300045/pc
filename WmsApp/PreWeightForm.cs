@@ -55,6 +55,7 @@ namespace WmsApp
             {
                 //称重
                 lbWeight.Visible = true;
+                tbUnit.Visible = true;
             }
             else
             {
@@ -306,10 +307,10 @@ namespace WmsApp
 
             Rectangle destRect = new Rectangle(200, -15, image.Width, image.Height);
             g.Graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
-            heightRight =image.Width-20;
+            //heightRight =image.Width-20;
 
-            layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
-            g.Graphics.DrawString(UserInfo.CompanyName, font, brush, layoutRectangleRight);
+            //layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
+            //g.Graphics.DrawString(UserInfo.CompanyName, font, brush, layoutRectangleRight);
 
             heightRight += 20;
 
@@ -345,7 +346,7 @@ namespace WmsApp
 
             height = 80+image.Height-15;
 
-            layoutRectangle = new RectangleF(pointX, height, 120f, 30f);
+            layoutRectangle = new RectangleF(pointX, height, 150f, 30f);
             g.Graphics.DrawString(preprocessInfo.preprocessCode, font, brush, layoutRectangle);
 
         }

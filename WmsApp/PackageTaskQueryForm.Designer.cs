@@ -83,7 +83,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(992, 18);
+            this.btnExport.Location = new System.Drawing.Point(902, 16);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 4;
@@ -93,14 +93,14 @@
             // 
             // tbTaskCode
             // 
-            this.tbTaskCode.Location = new System.Drawing.Point(719, 17);
+            this.tbTaskCode.Location = new System.Drawing.Point(664, 17);
             this.tbTaskCode.Name = "tbTaskCode";
             this.tbTaskCode.Size = new System.Drawing.Size(141, 26);
             this.tbTaskCode.TabIndex = 3;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(427, 17);
+            this.tbName.Location = new System.Drawing.Point(396, 17);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(141, 26);
             this.tbName.TabIndex = 3;
@@ -117,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(601, 23);
+            this.label4.Location = new System.Drawing.Point(546, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 16);
             this.label4.TabIndex = 0;
@@ -125,7 +125,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(887, 17);
+            this.btnQuery.Location = new System.Drawing.Point(818, 17);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -136,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 24);
+            this.label2.Location = new System.Drawing.Point(262, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 0;

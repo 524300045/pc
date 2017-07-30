@@ -10,7 +10,9 @@ namespace WmsSDK.Request
     {
         public string GetAPIPath()
         {
-            return "/storeInfo/getAllStoreInfo";
+            return "/storeInfo/getStoreInfoByPartnerCode";
         }
+
+        public string partnerCode { get; set; }
     }
 }

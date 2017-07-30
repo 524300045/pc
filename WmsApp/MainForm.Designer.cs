@@ -41,6 +41,7 @@
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbUserName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,7 @@
             this.toolStripButton2,
             this.tsbTaskQuery,
             this.toolStripButton4,
+            this.toolStripButton5,
             this.toolStripButton3,
             this.tsbExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -181,6 +183,16 @@
             this.lbUserName.Size = new System.Drawing.Size(131, 17);
             this.lbUserName.Text = "toolStripStatusLabel1";
             // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(156, 22);
+            this.toolStripButton5.Text = "供应商包装任务查询";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lbUserName;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
 

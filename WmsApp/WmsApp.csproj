@@ -71,6 +71,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PartnerPackageTaskQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartnerPackageTaskQueryForm.Designer.cs">
+      <DependentUpon>PartnerPackageTaskQueryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreprocessForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartnerPackageTaskQueryForm.resx">
+      <DependentUpon>PartnerPackageTaskQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreprocessForm.resx">
       <DependentUpon>PreprocessForm.cs</DependentUpon>

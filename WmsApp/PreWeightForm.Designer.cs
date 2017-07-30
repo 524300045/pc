@@ -43,6 +43,7 @@
             this.lbModelNum = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.tbUnit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -182,11 +183,23 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // tbUnit
+            // 
+            this.tbUnit.AutoSize = true;
+            this.tbUnit.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbUnit.Location = new System.Drawing.Point(367, 221);
+            this.tbUnit.Name = "tbUnit";
+            this.tbUnit.Size = new System.Drawing.Size(29, 20);
+            this.tbUnit.TabIndex = 2;
+            this.tbUnit.Text = "克";
+            this.tbUnit.Visible = false;
+            // 
             // PreWeightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 470);
+            this.Controls.Add(this.tbUnit);
             this.Controls.Add(this.tbWeight);
             this.Controls.Add(this.btnEsc);
             this.Controls.Add(this.label2);
@@ -227,5 +240,6 @@
         private System.Windows.Forms.Label lbModelNum;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label tbUnit;
     }
 }

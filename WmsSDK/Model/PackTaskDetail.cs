@@ -80,5 +80,30 @@ namespace WmsSDK.Model
 
           [JsonProperty("outboundTaskCode")]
           public string outboundTaskCode { get; set; }
+
+
+          public string StatusDes {
+
+              get
+              {
+                  if (status==0)
+                  {
+                      return "新建";
+                  }
+                  if (status==10)
+                  {
+                      return "包装中";
+                  }
+                  if (status==15)
+                  {
+                      return "已包装";
+                  }
+                  if (status==20)
+                  {
+                      return "关闭";
+                  }
+                  return "";
+              }
+          }
     }
 }

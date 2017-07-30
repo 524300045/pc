@@ -34,7 +34,7 @@ namespace WmsApp
         {
             this.dataGridView1.AutoGenerateColumns = false;
 
-            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
+            paginator = new PaginatorDTO { PageNo = 1, PageSize = 100 };
             BindDgv();
         }
 
@@ -48,7 +48,7 @@ namespace WmsApp
             {
                 request.goodsName = "%" + tbName.Text.Trim() + "%";
             }
-       
+            request.partnerCode = UserInfo.PartnerCode;
             request.isPreprocess = 1;
 
             GoodsResponse response = client.Execute(request);

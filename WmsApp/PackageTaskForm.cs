@@ -151,8 +151,11 @@ namespace WmsApp
                     int standNum=int.Parse(this.dataGridView1.CurrentRow.Cells["StandNum"].Value.ToString());
                     int orderNum=int.Parse(this.dataGridView1.CurrentRow.Cells["orderNum"].Value.ToString());
                     string processDes = this.dataGridView1.CurrentRow.Cells["progressDes"].Value.ToString();
+
+                    string warehouseName =this.dataGridView1.CurrentRow.Cells["warehouseName"].Value==null?"": this.dataGridView1.CurrentRow.Cells["warehouseName"].Value.ToString();
                     //这里可以编写你需要的任意关于按钮事件的操作~
                     WeightForm weightForm = new WeightForm(id, taskCode, orderCount, standNum, processDes, orderNum);
+                    weightForm.wareHouseName = warehouseName;
                     if (weightForm.ShowDialog() == DialogResult.OK)
                     {
                         BindDgv();

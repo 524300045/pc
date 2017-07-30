@@ -55,6 +55,7 @@
             this.orderNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finishNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StandNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -199,7 +200,8 @@
             this.orderCount,
             this.orderNum,
             this.finishNum,
-            this.StandNum});
+            this.StandNum,
+            this.warehouseName});
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -228,6 +230,7 @@
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
+            this.id.Width = 49;
             // 
             // status
             // 
@@ -235,6 +238,7 @@
             this.status.HeaderText = "status";
             this.status.Name = "status";
             this.status.Visible = false;
+            this.status.Width = 81;
             // 
             // PackTaskCode
             // 
@@ -331,6 +335,13 @@
             this.StandNum.ReadOnly = true;
             this.StandNum.Width = 97;
             // 
+            // warehouseName
+            // 
+            this.warehouseName.DataPropertyName = "warehouseName";
+            this.warehouseName.HeaderText = "仓库名称";
+            this.warehouseName.Name = "warehouseName";
+            this.warehouseName.Width = 97;
+            // 
             // PackageTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -377,5 +388,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn finishNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn StandNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseName;
     }
 }

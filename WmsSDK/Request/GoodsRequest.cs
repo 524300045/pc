@@ -11,7 +11,7 @@ namespace WmsSDK.Request
     {
         public string GetAPIPath()
         {
-            return "/goods/getGoodsList";
+            return "/goods/getGoodsListByPartner";
         }
 
           [JsonProperty("skuCode")]
@@ -37,6 +37,12 @@ namespace WmsSDK.Request
           [JsonProperty("isPreprocess")]
           public int isPreprocess { get; set; }
 
+
+        /// <summary>
+        /// 供应商编码
+        /// </summary>
+          [JsonProperty("partnerCode")]
+          public string partnerCode { get; set; }
 
     }
 }
