@@ -44,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,6 +65,7 @@
             this.updateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,7 +90,7 @@
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1239, 80);
+            this.groupBox1.Size = new System.Drawing.Size(927, 80);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
@@ -215,35 +215,19 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.pageSplit1);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 92);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1239, 363);
+            this.groupBox2.Size = new System.Drawing.Size(1219, 315);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "明细";
-            // 
-            // pageSplit1
-            // 
-            this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
-            this.pageSplit1.Description = "";
-            this.pageSplit1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pageSplit1.Location = new System.Drawing.Point(3, 326);
-            this.pageSplit1.Name = "pageSplit1";
-            this.pageSplit1.PageCount = 1;
-            this.pageSplit1.PageNo = 1;
-            this.pageSplit1.Size = new System.Drawing.Size(1233, 34);
-            this.pageSplit1.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -267,10 +251,11 @@
             this.updateTime,
             this.updateUser,
             this.warehouseName});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1233, 303);
+            this.dataGridView1.Size = new System.Drawing.Size(1213, 290);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
@@ -287,7 +272,7 @@
             this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column12.Text = "重打签";
             this.Column12.UseColumnTextForButtonValue = true;
-            this.Column12.Width = 81;
+            this.Column12.Width = 75;
             // 
             // Column13
             // 
@@ -299,7 +284,7 @@
             this.Column13.Name = "Column13";
             this.Column13.Text = "作废";
             this.Column13.UseColumnTextForButtonValue = true;
-            this.Column13.Width = 46;
+            this.Column13.Width = 41;
             // 
             // packageCode
             // 
@@ -307,7 +292,7 @@
             this.packageCode.HeaderText = "包装编码";
             this.packageCode.Name = "packageCode";
             this.packageCode.ReadOnly = true;
-            this.packageCode.Width = 97;
+            this.packageCode.Width = 75;
             // 
             // id
             // 
@@ -323,7 +308,7 @@
             this.boxCode.HeaderText = "箱号";
             this.boxCode.Name = "boxCode";
             this.boxCode.ReadOnly = true;
-            this.boxCode.Width = 65;
+            this.boxCode.Width = 60;
             // 
             // status
             // 
@@ -338,7 +323,7 @@
             this.weight.DataPropertyName = "weight";
             this.weight.HeaderText = "重量";
             this.weight.Name = "weight";
-            this.weight.Width = 65;
+            this.weight.Width = 60;
             // 
             // statusDes
             // 
@@ -346,7 +331,7 @@
             this.statusDes.HeaderText = "状态";
             this.statusDes.Name = "statusDes";
             this.statusDes.ReadOnly = true;
-            this.statusDes.Width = 65;
+            this.statusDes.Width = 60;
             // 
             // skuCode
             // 
@@ -354,7 +339,7 @@
             this.skuCode.HeaderText = "商品编码";
             this.skuCode.Name = "skuCode";
             this.skuCode.ReadOnly = true;
-            this.skuCode.Width = 97;
+            this.skuCode.Width = 75;
             // 
             // goodsName
             // 
@@ -362,7 +347,7 @@
             this.goodsName.HeaderText = "商品名称";
             this.goodsName.Name = "goodsName";
             this.goodsName.ReadOnly = true;
-            this.goodsName.Width = 97;
+            this.goodsName.Width = 75;
             // 
             // modelNum
             // 
@@ -370,7 +355,7 @@
             this.modelNum.HeaderText = "规格";
             this.modelNum.Name = "modelNum";
             this.modelNum.ReadOnly = true;
-            this.modelNum.Width = 65;
+            this.modelNum.Width = 60;
             // 
             // goodsUnit
             // 
@@ -378,7 +363,7 @@
             this.goodsUnit.HeaderText = "单位";
             this.goodsUnit.Name = "goodsUnit";
             this.goodsUnit.ReadOnly = true;
-            this.goodsUnit.Width = 65;
+            this.goodsUnit.Width = 60;
             // 
             // createUser
             // 
@@ -386,7 +371,7 @@
             this.createUser.HeaderText = "包装人员";
             this.createUser.Name = "createUser";
             this.createUser.ReadOnly = true;
-            this.createUser.Width = 97;
+            this.createUser.Width = 75;
             // 
             // createTime
             // 
@@ -394,7 +379,7 @@
             this.createTime.HeaderText = "包装时间";
             this.createTime.Name = "createTime";
             this.createTime.ReadOnly = true;
-            this.createTime.Width = 97;
+            this.createTime.Width = 75;
             // 
             // outboundTaskCode
             // 
@@ -402,7 +387,7 @@
             this.outboundTaskCode.HeaderText = "订单号";
             this.outboundTaskCode.Name = "outboundTaskCode";
             this.outboundTaskCode.ReadOnly = true;
-            this.outboundTaskCode.Width = 81;
+            this.outboundTaskCode.Width = 75;
             // 
             // storedName
             // 
@@ -410,7 +395,7 @@
             this.storedName.HeaderText = "商户名称";
             this.storedName.Name = "storedName";
             this.storedName.ReadOnly = true;
-            this.storedName.Width = 97;
+            this.storedName.Width = 75;
             // 
             // deliveryDate
             // 
@@ -418,7 +403,7 @@
             this.deliveryDate.HeaderText = "配送日期";
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.ReadOnly = true;
-            this.deliveryDate.Width = 97;
+            this.deliveryDate.Width = 75;
             // 
             // updateTime
             // 
@@ -443,11 +428,26 @@
             this.warehouseName.Name = "warehouseName";
             this.warehouseName.Width = 75;
             // 
+            // pageSplit1
+            // 
+            this.pageSplit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
+            this.pageSplit1.Description = "";
+            this.pageSplit1.Location = new System.Drawing.Point(15, 417);
+            this.pageSplit1.Margin = new System.Windows.Forms.Padding(2);
+            this.pageSplit1.Name = "pageSplit1";
+            this.pageSplit1.PageCount = 1;
+            this.pageSplit1.PageNo = 1;
+            this.pageSplit1.Size = new System.Drawing.Size(735, 39);
+            this.pageSplit1.TabIndex = 1;
+            this.pageSplit1.PageChanged += new System.EventHandler(this.pageSplit1_PageChanged);
+            // 
             // PackageDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 467);
+            this.Controls.Add(this.pageSplit1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "PackageDetailForm";

@@ -47,7 +47,7 @@ namespace WmsApp
             cbStatus.SelectedIndex = 0;
             this.dtBegin.Value = DateTime.Now.AddDays(2).AddDays(-1);
             this.dataGridView1.AutoGenerateColumns = false;
-            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
+            paginator = new PaginatorDTO { PageNo = 1, PageSize = 100 };
             bindStore();
             BindDgv();
         }
@@ -421,6 +421,12 @@ namespace WmsApp
             {
                 btnImport.Enabled = true;
             }
+        }
+
+        private void pageSplit1_PageChanged(object sender, EventArgs e)
+        {
+            paginator.PageNo = pageSplit1.PageNo;
+            BindDgv();
         }
     }
 }

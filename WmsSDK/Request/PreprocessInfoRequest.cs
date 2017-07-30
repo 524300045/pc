@@ -35,6 +35,18 @@ namespace WmsSDK.Request
         [JsonProperty("partnerCode")]
         public String partnerCode { get; set; }
 
+        /// <summary>
+        /// 页码
+        /// </summary>
+        [JsonProperty("pageIndex")]
+        public int PageIndex { get; set; }
+
+        /// <summary>
+        /// 每页显示数量
+        /// </summary>
+        [JsonProperty("pageSize")]
+        public int PageSize { get; set; }
+
     }
 
 }

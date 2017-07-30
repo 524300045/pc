@@ -42,7 +42,7 @@ namespace WmsApp
         private void PackageTaskForm_Load(object sender, EventArgs e)
         {
             this.dataGridView1.AutoGenerateColumns = false;
-            paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
+            paginator = new PaginatorDTO { PageNo = 1, PageSize = 100 };
             BindDgv();
         }
 
@@ -81,6 +81,8 @@ namespace WmsApp
             PreprocessInfoQueryRequest request = new PreprocessInfoQueryRequest();
             request.preprocessCode = tbPackageCode.Text.Trim();
             request.partnerCode = UserInfo.PartnerCode;
+            request.PageIndex = paginator.PageNo;
+            request.PageSize = paginator.PageSize;
 
             PreprocessInfoResponse response = client.Execute(request);
             if (!response.IsError)
@@ -116,6 +118,20 @@ namespace WmsApp
                 this.dataGridView1.DataSource = null;
             }
 
+        }
+
+        private void tbPackageCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                btnQuery_Click(null,null);
+            }
+        }
+
+        private void pageSplit1_PageChanged(object sender, EventArgs e)
+        {
+            paginator.PageNo = pageSplit1.PageNo;
+            BindDgv();
         }
 
         
