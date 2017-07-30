@@ -75,6 +75,9 @@ namespace WmsSDK.Response
         [JsonProperty("boxCode")]
         public string boxCode { get; set; }
 
+
+          [JsonProperty("warehouseName")]
+        public string warehouseName { get; set; }
         
 
         public string statusDes

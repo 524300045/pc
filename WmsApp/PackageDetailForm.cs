@@ -33,6 +33,8 @@ namespace WmsApp
 
         private IWMSClient client = null;
 
+        string wareName;
+
         public PackageDetailForm()
         {
             InitializeComponent();
@@ -84,6 +86,8 @@ namespace WmsApp
                         if (packageDetailQueryList != null)
                         {
                             string packageCode = this.dataGridView1.CurrentRow.Cells["packageCode"].Value.ToString();
+
+                            wareName = this.dataGridView1.CurrentRow.Cells["warehouseName"].Value.ToString();
                             //重打印
                             curPackageDetailQuery = packageDetailQueryList.Where(p => p.packageCode == packageCode).FirstOrDefault();
 
@@ -142,8 +146,8 @@ namespace WmsApp
             heightRight = image.Width - 20;
 
             layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);
-            g.Graphics.DrawString(UserInfo.WareHouseName, font, brush, layoutRectangleRight);
-
+            g.Graphics.DrawString(wareName, font, brush, layoutRectangleRight);
+        
             heightRight += 20;
 
             layoutRectangleRight = new RectangleF(155, heightRight, 150f, 85f);

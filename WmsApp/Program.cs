@@ -38,7 +38,7 @@ namespace WmsApp
           DefalutWMSClient.DefaultServiceAddress = " http://192.168.0.113:8089/webservice/services";
        
 
-         // DefalutWMSClient.DefaultServiceAddress = " http://api.cooperate.bjkalf.net:8080/services";
+        // DefalutWMSClient.DefaultServiceAddress = " http://api.cooperate.bjkalf.net:8080/services";
 
 
            // Application.Run(new Form1());

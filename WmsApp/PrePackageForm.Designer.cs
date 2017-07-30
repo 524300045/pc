@@ -71,6 +71,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(141, 26);
             this.tbName.TabIndex = 3;
+            this.tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbName_KeyDown);
             // 
             // btnQuery
             // 

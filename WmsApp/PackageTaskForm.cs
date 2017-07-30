@@ -39,7 +39,7 @@ namespace WmsApp
              //   dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
 
                 this.dataGridView1.AutoGenerateColumns = false;
-                paginator = new PaginatorDTO { PageNo = 1, PageSize = 30 };
+                paginator = new PaginatorDTO { PageNo = 1, PageSize = 100 };
                 cbStatus.SelectedIndex = 0;
                 BindDgv();
             }

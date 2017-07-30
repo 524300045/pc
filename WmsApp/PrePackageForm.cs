@@ -133,6 +133,14 @@ namespace WmsApp
             BindDgv();
         }
 
+        private void tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                btnQuery_Click(null,null);
+            }
+        }
+
 
     }
 }

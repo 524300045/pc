@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column12 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +55,7 @@
             this.finishNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StandNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pageSplit1 = new Wms.Controls.Pager.PageSplit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,7 +75,7 @@
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1239, 55);
+            this.groupBox1.Size = new System.Drawing.Size(992, 55);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
@@ -90,14 +90,14 @@
             "包装中",
             "完成",
             "关闭"});
-            this.cbStatus.Location = new System.Drawing.Point(649, 18);
+            this.cbStatus.Location = new System.Drawing.Point(577, 18);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(98, 24);
             this.cbStatus.TabIndex = 4;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(409, 17);
+            this.tbName.Location = new System.Drawing.Point(369, 17);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(141, 26);
             this.tbName.TabIndex = 3;
@@ -113,7 +113,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(782, 23);
+            this.btnQuery.Location = new System.Drawing.Point(690, 20);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -124,7 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(595, 24);
+            this.label3.Location = new System.Drawing.Point(523, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 0;
@@ -133,7 +133,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(275, 21);
+            this.label2.Location = new System.Drawing.Point(235, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 0;
@@ -150,39 +150,21 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.pageSplit1);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 67);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1239, 396);
+            this.groupBox2.Size = new System.Drawing.Size(992, 337);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "明细";
-            // 
-            // pageSplit1
-            // 
-            this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
-            this.pageSplit1.Description = "";
-            this.pageSplit1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pageSplit1.Location = new System.Drawing.Point(3, 359);
-            this.pageSplit1.Name = "pageSplit1";
-            this.pageSplit1.PageCount = 1;
-            this.pageSplit1.PageNo = 1;
-            this.pageSplit1.Size = new System.Drawing.Size(1233, 34);
-            this.pageSplit1.TabIndex = 1;
-            this.pageSplit1.PageChanged += new System.EventHandler(this.pageSplit1_PageChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -202,10 +184,11 @@
             this.finishNum,
             this.StandNum,
             this.warehouseName});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1233, 344);
+            this.dataGridView1.Size = new System.Drawing.Size(986, 312);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
@@ -342,11 +325,27 @@
             this.warehouseName.Name = "warehouseName";
             this.warehouseName.Width = 97;
             // 
+            // pageSplit1
+            // 
+            this.pageSplit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
+            this.pageSplit1.Description = "";
+            this.pageSplit1.Location = new System.Drawing.Point(12, 415);
+            this.pageSplit1.Margin = new System.Windows.Forms.Padding(2);
+            this.pageSplit1.Name = "pageSplit1";
+            this.pageSplit1.PageCount = 1;
+            this.pageSplit1.PageNo = 1;
+            this.pageSplit1.Size = new System.Drawing.Size(1236, 36);
+            this.pageSplit1.TabIndex = 1;
+            this.pageSplit1.PageChanged += new System.EventHandler(this.pageSplit1_PageChanged);
+            // 
             // PackageTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 467);
+            this.Controls.Add(this.pageSplit1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "PackageTaskForm";

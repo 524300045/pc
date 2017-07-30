@@ -65,6 +65,7 @@
             this.deliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -264,7 +265,8 @@
             this.storedName,
             this.deliveryDate,
             this.updateTime,
-            this.updateUser});
+            this.updateUser,
+            this.warehouseName});
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -285,7 +287,7 @@
             this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column12.Text = "重打签";
             this.Column12.UseColumnTextForButtonValue = true;
-            this.Column12.Width = 75;
+            this.Column12.Width = 81;
             // 
             // Column13
             // 
@@ -297,7 +299,7 @@
             this.Column13.Name = "Column13";
             this.Column13.Text = "作废";
             this.Column13.UseColumnTextForButtonValue = true;
-            this.Column13.Width = 41;
+            this.Column13.Width = 46;
             // 
             // packageCode
             // 
@@ -305,7 +307,7 @@
             this.packageCode.HeaderText = "包装编码";
             this.packageCode.Name = "packageCode";
             this.packageCode.ReadOnly = true;
-            this.packageCode.Width = 75;
+            this.packageCode.Width = 97;
             // 
             // id
             // 
@@ -313,6 +315,7 @@
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
+            this.id.Width = 49;
             // 
             // boxCode
             // 
@@ -320,7 +323,7 @@
             this.boxCode.HeaderText = "箱号";
             this.boxCode.Name = "boxCode";
             this.boxCode.ReadOnly = true;
-            this.boxCode.Width = 60;
+            this.boxCode.Width = 65;
             // 
             // status
             // 
@@ -328,13 +331,14 @@
             this.status.HeaderText = "status";
             this.status.Name = "status";
             this.status.Visible = false;
+            this.status.Width = 81;
             // 
             // weight
             // 
             this.weight.DataPropertyName = "weight";
             this.weight.HeaderText = "重量";
             this.weight.Name = "weight";
-            this.weight.Width = 60;
+            this.weight.Width = 65;
             // 
             // statusDes
             // 
@@ -342,7 +346,7 @@
             this.statusDes.HeaderText = "状态";
             this.statusDes.Name = "statusDes";
             this.statusDes.ReadOnly = true;
-            this.statusDes.Width = 60;
+            this.statusDes.Width = 65;
             // 
             // skuCode
             // 
@@ -350,7 +354,7 @@
             this.skuCode.HeaderText = "商品编码";
             this.skuCode.Name = "skuCode";
             this.skuCode.ReadOnly = true;
-            this.skuCode.Width = 75;
+            this.skuCode.Width = 97;
             // 
             // goodsName
             // 
@@ -358,7 +362,7 @@
             this.goodsName.HeaderText = "商品名称";
             this.goodsName.Name = "goodsName";
             this.goodsName.ReadOnly = true;
-            this.goodsName.Width = 75;
+            this.goodsName.Width = 97;
             // 
             // modelNum
             // 
@@ -366,7 +370,7 @@
             this.modelNum.HeaderText = "规格";
             this.modelNum.Name = "modelNum";
             this.modelNum.ReadOnly = true;
-            this.modelNum.Width = 60;
+            this.modelNum.Width = 65;
             // 
             // goodsUnit
             // 
@@ -374,7 +378,7 @@
             this.goodsUnit.HeaderText = "单位";
             this.goodsUnit.Name = "goodsUnit";
             this.goodsUnit.ReadOnly = true;
-            this.goodsUnit.Width = 60;
+            this.goodsUnit.Width = 65;
             // 
             // createUser
             // 
@@ -382,7 +386,7 @@
             this.createUser.HeaderText = "包装人员";
             this.createUser.Name = "createUser";
             this.createUser.ReadOnly = true;
-            this.createUser.Width = 75;
+            this.createUser.Width = 97;
             // 
             // createTime
             // 
@@ -390,7 +394,7 @@
             this.createTime.HeaderText = "包装时间";
             this.createTime.Name = "createTime";
             this.createTime.ReadOnly = true;
-            this.createTime.Width = 75;
+            this.createTime.Width = 97;
             // 
             // outboundTaskCode
             // 
@@ -398,7 +402,7 @@
             this.outboundTaskCode.HeaderText = "订单号";
             this.outboundTaskCode.Name = "outboundTaskCode";
             this.outboundTaskCode.ReadOnly = true;
-            this.outboundTaskCode.Width = 75;
+            this.outboundTaskCode.Width = 81;
             // 
             // storedName
             // 
@@ -406,7 +410,7 @@
             this.storedName.HeaderText = "商户名称";
             this.storedName.Name = "storedName";
             this.storedName.ReadOnly = true;
-            this.storedName.Width = 75;
+            this.storedName.Width = 97;
             // 
             // deliveryDate
             // 
@@ -414,7 +418,7 @@
             this.deliveryDate.HeaderText = "配送日期";
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.ReadOnly = true;
-            this.deliveryDate.Width = 75;
+            this.deliveryDate.Width = 97;
             // 
             // updateTime
             // 
@@ -431,6 +435,13 @@
             this.updateUser.Name = "updateUser";
             this.updateUser.ReadOnly = true;
             this.updateUser.Width = 89;
+            // 
+            // warehouseName
+            // 
+            this.warehouseName.DataPropertyName = "warehouseName";
+            this.warehouseName.HeaderText = "仓库名称";
+            this.warehouseName.Name = "warehouseName";
+            this.warehouseName.Width = 75;
             // 
             // PackageDetailForm
             // 
@@ -487,5 +498,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseName;
     }
 }
