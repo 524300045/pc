@@ -113,7 +113,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(690, 20);
+            this.btnQuery.Location = new System.Drawing.Point(690, 18);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -323,11 +323,13 @@
             this.warehouseName.DataPropertyName = "warehouseName";
             this.warehouseName.HeaderText = "仓库名称";
             this.warehouseName.Name = "warehouseName";
+            this.warehouseName.ReadOnly = true;
             this.warehouseName.Width = 97;
             // 
             // pageSplit1
             // 
-            this.pageSplit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pageSplit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pageSplit1.BackColor = System.Drawing.Color.LightGray;
             this.pageSplit1.Description = "";
